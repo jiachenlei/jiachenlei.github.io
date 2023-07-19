@@ -1,0 +1,220 @@
+<html>
+<header>
+    <title> Jiachen Lei's Home Page</title>
+
+    <style>
+        body {
+            padding:0;
+            margin:0;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .navigate {
+            width: 100%;
+            height: 3em;
+            background-color: hsla(0,0%,94.1%,.9);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: 140px;
+            margin-left: 140px;
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .navbar-brand{
+            display: inline-block;
+            padding-top: .3125rem;
+            padding-bottom: .3125rem;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+        .navbar-nav{
+            display: flex!important;
+        }
+        .nav-link{
+            display: block;
+            color: rgba(0,0,0,.5);
+            padding: .5rem 1rem;
+            text-decoration: none;
+            background-color: transparent;
+        }
+    </style>
+
+    
+    <style>
+        .blog-nav-container{
+            top:7%;
+            position:fixed;
+            width: 100%;
+            display: flex;
+        }
+ 
+        .blog-nav-lnav{
+            position: absolute;
+            height:auto;
+            left: 0;
+            width: 20%;
+            margin-left: 5%;
+            margin-top: 30px;
+        }
+        .blog-nav-content{
+            padding-left: 20px;
+            margin: 30px 20% 0px 15%;
+            height: auto;
+            width: 60%;
+        }
+        .blog-nav-list{
+            background-color: white;
+            padding: 20px 10px 10px 30px;
+            margin-bottom: 20px;
+            height: auto;
+            min-height: 30px;
+            width: 95%;
+            border-bottom: solid;
+ 
+            border-color: hsla(0,0%,94.1%,.9);
+            border-radius: 5px;
+        }
+        .blog-nav-list:hover{
+            cursor: pointer;
+        }
+        .blog-nav-head > a{ 
+            color: black;
+            cursor: pointer;
+            font-size:24px;
+            text-decoration: none;
+            font-weight: bold   
+        }
+
+        .blog-nav-head{
+            clear: left;
+            margin: 0 0 12px;
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            font: 22px Arial,sans-serif;
+            /*font: 22px Georgia,"Times New Roman",Times,sans-serif;*/
+        } 
+        .blog-nav-abstract{
+            font: 18px Arial,sans-serif;
+            /*font: 20px Georgia,"Times New Roman",Times,sans-serif;*/
+        }
+    </style>
+
+
+</header>
+
+<body>
+
+<div>
+    <nav class="navigate">
+        <div class="container">
+            <p class="navbar-brand" style="color: rgba(0,0,0,.9)">
+                Welcome to Jiachen Lei's Home Page
+            </p>
+            <div class="navbar-nav"">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/cv" class="nav-link">CV</a>
+                <a href="/blog-nav" class="nav-link">Blogs</a>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        
+<!--             font: 23px Georgia,"Times New Roman",Times,sans-serif; -->
+<div class="blog-nav-container">
+
+    <div class="blog-nav-lnav">
+        <h1></h1>
+    </div>
+    
+
+    <div class="blog-nav-content">
+   
+        <h1> Glad to help :)</h1>
+
+        
+            <div class="blog-nav-list" id="blog-nav-list">
+                <div class="blog-nav-head">
+                    <a href="/blog/Parametric v.s Non-parametric"> Parametric v.s Non-parametric</a>
+                </div>
+                <div class="blog-nav-abstract">
+                    <p><h3>Abstract</h3><p>Simply discussed the concepts of "parametric" and "non-parametric"</p></p>
+                </div>
+            </div>
+        
+            <div class="blog-nav-list" id="blog-nav-list">
+                <div class="blog-nav-head">
+                    <a href="/blog/Understanding Denoising Diffusion Probabilistic Model (DDPM)"> Understanding Denoising Diffusion Probabilistic Model (DDPM)</a>
+                </div>
+                <div class="blog-nav-abstract">
+                    <p><h3>Abstract</h3>
+<p>This blog covered the following topics: (working in progress)<br />
+- Introduced technical details of DDPM including step-by-step mathematical derivations.<br />
+- Introduced DDIM, Denoising diffusion implicit model, which is proposed for sampling acceleration.<br />
+- Draw connections between DDPM and current generative models.  </p><p>A highly recommended blog is [1], where most details on DDPM, DDIM, LDM, guidance, and current large-scale DMs, etc, are presented. In this blog, I mainly focus on details that are not mentioned in [1] but are somewhat confusing. Therefore, it's assumed that audiences understand how do DDPMs work and know the basic formulas in DDPM[2].</p><p>It is well known that DDPM[2] is proposed based on the theories presented in [3]. It proposed to optimize the objective that directly compares predicted noise and ground truth:
+\begin{center}</p>
+<div class="blockformula"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>L</mi><mn>1</mn></msub><mo>&#x0003D;</mo><mrow><mo stretchy="true" fence="true" form="prefix">&#x02016;</mo><msub><mi>&#x003F5;</mi><mi>&#x003B8;</mi></msub><mo stretchy="false">&#x00028;</mo><msub><mi>x</mi><mi>t</mi></msub><mo>&#x0002C;</mo><mi>t</mi><mo stretchy="false">&#x00029;</mo><mo>&#x02212;</mo><mi>&#x003F5;</mi><mo stretchy="true" fence="true" form="postfix">&#x02016;</mo></mrow></mrow></math></div>
+<p>\end{center}</p><p>Question 1:  What makes the current form of diffusion model? What is the improvement proposed in DDPM[2] that makes diffusion models work based on [3]?</p><h3>References</h3>
+<p>Blog<br />
+[1] https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</p><p>Paper<br />
+[2]<br />
+[3] </p></p>
+                </div>
+            </div>
+        
+            <div class="blog-nav-list" id="blog-nav-list">
+                <div class="blog-nav-head">
+                    <a href="/blog/test_blog3"> test_blog3</a>
+                </div>
+                <div class="blog-nav-abstract">
+                    <p><p>### DFGC 2022
+This is a new update to test_blog3, a new update, another new update, update ""!!! abcdefgh</p></p>
+                </div>
+            </div>
+        
+
+    </div>
+
+</div>
+
+
+    </div>
+    <div class="footer">
+
+    </div>
+
+</div>
+
+
+    
+</body>
+
+
+
+<script>
+   
+    var list = document.getElementById("blog-nav-list")
+
+    list.addEventListener("click", function(event){
+        event.preventDefault();
+        window.location.href = document.querySelector("#blog-nav-list").querySelector(".blog-nav-head").querySelector("a").href;
+    })
+
+</script>
+
+
+
+</html>
+
+
+
