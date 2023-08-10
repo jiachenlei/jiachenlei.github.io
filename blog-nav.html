@@ -53,7 +53,7 @@
     <style>
         .blog-nav-container{
             top:7%;
-            position:fixed;
+            /* position:fixed; */
             width: 100%;
             display: flex;
         }
@@ -123,8 +123,8 @@
             </p>
             <div class="navbar-nav"">
                 <a href="/" class="nav-link">Home</a>
-                <a href="/cv" class="nav-link">CV</a>
-                <a href="/blog-nav" class="nav-link">Blogs</a>
+                <!-- <a href="/cv.html" class="nav-link">CV</a> -->
+                <!-- <a href="/blog-nav.html" class="nav-link">Blogs</a> -->
             </div>
         </div>
     </nav>
@@ -145,40 +145,15 @@
         
             <div class="blog-nav-list" id="blog-nav-list">
                 <div class="blog-nav-head">
-                    <a href="/blog/Parametric v.s Non-parametric"> Parametric v.s Non-parametric</a>
+                    <a href="/blog/Understanding Denoising Diffusion Probabilistic Model (DDPM).html"> Understanding Denoising Diffusion Probabilistic Model (DDPM)</a>
                 </div>
                 <div class="blog-nav-abstract">
-                    <p><h3>Abstract</h3><p>Simply discussed the concepts of "parametric" and "non-parametric"</p></p>
-                </div>
-            </div>
-        
-            <div class="blog-nav-list" id="blog-nav-list">
-                <div class="blog-nav-head">
-                    <a href="/blog/Understanding Denoising Diffusion Probabilistic Model (DDPM)"> Understanding Denoising Diffusion Probabilistic Model (DDPM)</a>
-                </div>
-                <div class="blog-nav-abstract">
-                    <p><h3>Abstract</h3>
-<p>This blog covered the following topics: (working in progress)<br />
-- Introduced technical details of DDPM including step-by-step mathematical derivations.<br />
-- Introduced DDIM, Denoising diffusion implicit model, which is proposed for sampling acceleration.<br />
-- Draw connections between DDPM and current generative models.  </p><p>A highly recommended blog is [1], where most details on DDPM, DDIM, LDM, guidance, and current large-scale DMs, etc, are presented. In this blog, I mainly focus on details that are not mentioned in [1] but are somewhat confusing. Therefore, it's assumed that audiences understand how do DDPMs work and know the basic formulas in DDPM[2].</p><p>It is well known that DDPM[2] is proposed based on the theories presented in [3]. It proposed to optimize the objective that directly compares predicted noise and ground truth:
-\begin{center}</p>
-<div class="blockformula"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>L</mi><mn>1</mn></msub><mo>&#x0003D;</mo><mrow><mo stretchy="true" fence="true" form="prefix">&#x02016;</mo><msub><mi>&#x003F5;</mi><mi>&#x003B8;</mi></msub><mo stretchy="false">&#x00028;</mo><msub><mi>x</mi><mi>t</mi></msub><mo>&#x0002C;</mo><mi>t</mi><mo stretchy="false">&#x00029;</mo><mo>&#x02212;</mo><mi>&#x003F5;</mi><mo stretchy="true" fence="true" form="postfix">&#x02016;</mo></mrow></mrow></math></div>
-<p>\end{center}</p><p>Question 1:  What makes the current form of diffusion model? What is the improvement proposed in DDPM[2] that makes diffusion models work based on [3]?</p><h3>References</h3>
-<p>Blog<br />
-[1] https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</p><p>Paper<br />
-[2]<br />
-[3] </p></p>
-                </div>
-            </div>
-        
-            <div class="blog-nav-list" id="blog-nav-list">
-                <div class="blog-nav-head">
-                    <a href="/blog/test_blog3"> test_blog3</a>
-                </div>
-                <div class="blog-nav-abstract">
-                    <p><p>### DFGC 2022
-This is a new update to test_blog3, a new update, another new update, update ""!!! abcdefgh</p></p>
+                    <p><p>(working in progress)</p>
+<h3>Abstract</h3>
+<p>This blog covered the following topics:<br />
+- Details of DDPM that is not frequently discussed eleswhere. 
+- Connections between DDPM and other generative models, e.g., VAE.
+- Problems of DDPM and explorations that have been made. </p></p>
                 </div>
             </div>
         

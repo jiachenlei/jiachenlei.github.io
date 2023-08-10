@@ -1,46 +1,52 @@
 ### Education  
-- B.S. Shanghai University of Electricity Power, 2020  
-- M.S. at Cyberspace Security Lab, Zhejiang University, 2023. Advised by [Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN)
+- B.S. Shanghai University of Electricity Power, 2016 - 2020  
+- M.S. at Cyberspace Security Lab, Zhejiang University, 2020 - 2023.
 
-### Skills
-* Generative Modeling (GAN, VAE, DDPM), Deepfake Detection, Representation Learning 
-* Programming: Pytorch/Python/C
+### Publications
+<font size=5>
 
+(Preprint) Masked Diffusion Models are Fast Learners [arxiv](https://arxiv.org/abs/2306.11363)  
+<font size=4> **Jiachen Lei**, *Peng Cheng, Zhongjie Ba*, Kui Ren* </font>
+
+</font>
 ### Competitions  
 
 #### 2022  
-[Ego4d Workshop@ECCV 2022](https://ego4d-data.org/workshops/eccv22/)  
+*Ego4d Workshop@ECCV 2022* [link](https://ego4d-data.org/workshops/eccv22/)  
 
-* Result: Ranked **2nd** place in both OSCC and PNR-TL challenges
+* Result: Ranked **2nd** place in both *OSCC* and *PNR-TL* challenges
 * For more details about our methodoloty please refer to our [validation report](https://arxiv.org/abs/2211.15286)
-* Team Members: Me, [Shuang Ma](https://www.shuangma.me), [Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN)
+* Team Members: [Shuang Ma](https://www.shuangma.me), [Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN)
 * For more details about the challenge, please visit workshop [website](https://ego4d-data.org/workshops/eccv22/)
 
 
-[DeepFake Game Competition (DFGC) @ IJCB 2022 - Creation Track](https://codalab.lisn.upsaclay.fr/competitions/2149)  
+*DeepFake Game Competition (DFGC) @ IJCB 2022* 
+  
+*Creation Track* [link](https://codalab.lisn.upsaclay.fr/competitions/2149)  
 
 * Result: Ranked **3rd** place at stage 1 (score: 18.077/20.727) and stage 2 (score: 23.818/26.959).  
 * Takeaways of our methodology:  
     *  Improved SimSwap postprocessing with Splining and Global Contrast Factor (GCF) adjustment.
     *  Reproduced HRFS for high quality face swapping (official code is not available).
     *  Experimented with newly proposed face swapping method MetaPixel
-* Team Members: Me and [Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN)  
+* Team Members: [Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN)  
 * For more details about the competition, please visit official [Evaluation Result](https://codalab.lisn.upsaclay.fr/competitions/2149#learn_the_details-evaluation)  
 
-[DeepFake Game Competition (DFGC) @ IJCB 2022 - Detection Track](https://codalab.lisn.upsaclay.fr/competitions/2149)  
+
+*Detection Track* [link](https://codalab.lisn.upsaclay.fr/competitions/2149)  
 
 * Result: Ranked **4th** place. We achieved similar results to other teams with smaller model and less training expense
-* Team Members: Me(team leader), Jieming Zhong, Weilun Dai, Kaiqiang Fu and [Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN)  
+* Team Members: Jieming Zhong, Weilun Dai, Kaiqiang Fu and [Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN)  
 * For more details about the competition, please visit official [Evaluation Result](https://codalab.lisn.upsaclay.fr/competitions/3523#results)
 
 ---
 
 #### 2021  
 
-[The 3rd Chinese AI Competition](https://ai.xm.gov.cn/competition/competition-detail.html?id=a8e0c40dbb2347fba8b3c9a6294efa5b) - Tracks: [AI based video forgery](https://ai.xm.gov.cn/competition/project-detail.html?id=7533e49def25456a88b3be38f3b967b2&competeId=a8e0c40dbb2347fba8b3c9a6294efa5b) and [Deepfake video detection](https://ai.xm.gov.cn/competition/project-detail.html?id=c0261ec7bff74ab5ab77adefee284081&competeId=a8e0c40dbb2347fba8b3c9a6294efa5b)  
+*The 3rd Chinese AI Competition* [link](https://ai.xm.gov.cn/competition/competition-detail.html?id=a8e0c40dbb2347fba8b3c9a6294efa5b) - Tracks: [AI based video forgery](https://ai.xm.gov.cn/competition/project-detail.html?id=7533e49def25456a88b3be38f3b967b2&competeId=a8e0c40dbb2347fba8b3c9a6294efa5b) and [Deepfake video detection](https://ai.xm.gov.cn/competition/project-detail.html?id=c0261ec7bff74ab5ab77adefee284081&competeId=a8e0c40dbb2347fba8b3c9a6294efa5b)  
  
   - Result: won ***A*** price (highest price) in track: AI based video forgery (only 2 out of 164 teams were awarded A price)  
-  - Team members: Me(team leader), Xiaodong Chen, Huiyu Xu, Liu liu and [Zhibo Wang](https://scholar.google.com/citations?user=0ox7zDkAAAAJ&hl=en)  
+  - Team members: Xiaodong Chen, Huiyu Xu, Liu liu and [Zhibo Wang](https://scholar.google.com/citations?user=0ox7zDkAAAAJ&hl=en)  
   <!-- * More details are in Blog 👉[CAIC21]() -->  
 
 ---  
@@ -82,7 +88,7 @@
 <p style="position:absolute; left:60%">From Sep to Dec, 2021   </p>
 </div>
 
-  * Second author of paper: [Improving Fairness in Heterogeneous Federated Learning]() (Not publicly available)
+  * Second author of paper: *Improving Fairness in Heterogeneous Federated Learning* (Not publicly available)
   * Work with Shaoxiang Qing from Cyber-Physical Intelligence Lab, McGill University 
 
 ---
@@ -97,7 +103,7 @@
 ### Internship
 
 <div style="display:flex">
-<p>Microsoft Research (Remote)</p>
+<p>Microsoft Research</p>
 <p style="position:absolute; left:60%"> From May, 2022 ~ Now </p>
 </div>  
 

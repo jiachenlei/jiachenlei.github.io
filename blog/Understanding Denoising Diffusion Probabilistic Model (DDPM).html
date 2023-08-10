@@ -51,6 +51,29 @@
 
     
 <script>
+    MathJax = {
+        tex: {
+            inlineMath: [
+                ['$','$'],
+                    ['\\(','\\)']
+            ],
+            displayMath: [
+                ['$$', '$$'],
+                ['\\[', '\\]']
+            ],
+                
+            tags: 'ams',
+        },
+  
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+<script>
+
     function resizeIframe(obj) {
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 50 + 'px';
         // obj.style.width  = "100%";
@@ -80,8 +103,8 @@
             </p>
             <div class="navbar-nav"">
                 <a href="/" class="nav-link">Home</a>
-                <a href="/cv" class="nav-link">CV</a>
-                <a href="/blog-nav" class="nav-link">Blogs</a>
+                <!-- <a href="/cv.html" class="nav-link">CV</a> -->
+                <!-- <a href="/blog-nav.html" class="nav-link">Blogs</a> -->
             </div>
         </div>
     </nav>
@@ -91,16 +114,36 @@
 <!-- <iframe id = "blog-frame" scrolling="no" style="border:none; min-height:100%;" onload="resizeIframe(this)"></iframe> -->
 <div>
     <!-- <div id="blog-div-left"> </div> -->
-    <div id="blog-div-plhd" style="visibility:display;margin: 30px 20% 0px 15%"> <h2>Understanding Denoising Diffusion Probabilistic Model (DDPM)</h2><h3>Abstract</h3>
-<p>This blog covered the following topics: (working in progress)<br />
-- Introduced technical details of DDPM including step-by-step mathematical derivations.<br />
-- Introduced DDIM, Denoising diffusion implicit model, which is proposed for sampling acceleration.<br />
-- Draw connections between DDPM and current generative models.  </p><p>A highly recommended blog is [1], where most details on DDPM, DDIM, LDM, guidance, and current large-scale DMs, etc, are presented. In this blog, I mainly focus on details that are not mentioned in [1] but are somewhat confusing. Therefore, it's assumed that audiences understand how do DDPMs work and know the basic formulas in DDPM[2].</p><p>It is well known that DDPM[2] is proposed based on the theories presented in [3]. It proposed to optimize the objective that directly compares predicted noise and ground truth:
-\begin{center}</p>
-<div class="blockformula"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>L</mi><mn>1</mn></msub><mo>&#x0003D;</mo><mrow><mo stretchy="true" fence="true" form="prefix">&#x02016;</mo><msub><mi>&#x003F5;</mi><mi>&#x003B8;</mi></msub><mo stretchy="false">&#x00028;</mo><msub><mi>x</mi><mi>t</mi></msub><mo>&#x0002C;</mo><mi>t</mi><mo stretchy="false">&#x00029;</mo><mo>&#x02212;</mo><mi>&#x003F5;</mi><mo stretchy="true" fence="true" form="postfix">&#x02016;</mo></mrow></mrow></math></div>
-<p>\end{center}</p><p>Question 1:  What makes the current form of diffusion model? What is the improvement proposed in DDPM[2] that makes diffusion models work based on [3]?</p><h3>References</h3>
-<p>Blog<br />
-[1] https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</p><p>Paper<br />
+    <div id="blog-div-plhd" style="visibility:display;margin: 30px 20% 0px 15%"> <h2>Revisiting Denoising Diffusion Probabilistic Model (DDPM): A Tutorial</h2>
+<p>(working in progress)</p>
+<h3>Abstract</h3>
+<p>This blog covered the following topics:<br />
+- Details of DDPM that is not frequently discussed eleswhere. 
+- Connections between DDPM and other generative models, e.g., VAE.
+- Problems of DDPM and explorations that have been made. </p>
+<p><sep></p>
+<h3>Introduction</h3>
+<p>Currently, everyone hears about diffusion models that generate image via "denoising". However, as some important details are not presented in the original paper DDPM[2], it is difficult for newcomers to understand the derivation of the final simplified objective used in the original DDPM paper. Therefore, this blog will cover the "corners" that are seldomly mentioned elsewhere. We will start from deriving the simplified objective in \ref{eq:lsimple}, explaining why we drop some terms from the objective or make unintuitive simplifications.</p>
+<p>is proposed based on the theories presented in [3]. By parameterizing the neural network as a noise predictior $\epsilon_\theta(x_t,t)$, it simplifies the objective that directly compares predicted noise and ground truth:</p>
+<p>$$
+\begin{equation}
+    L_{simple}= \mathop{ \mathbb{E} }_{t\sim U(0,1),\ x_0\sim p(x_0)}  \left\lVert \epsilon_\theta(x_t,t)-\epsilon \right\rVert^2
+     \label{eq:lsimple}
+\end{equation}
+$$</p>
+<p>It's assumed that audiences understand the basics of DDPM[2], such as the definition of forward and reverse processes, the derivation of final simplified objective. Let's review the derivation of the Eq.\ref{eq:lsimple} in details.</p>
+<h3>Section 1</h3>
+<h3>1.1 Revisit details of DDPM</h3>
+<p>In this section, we will answer the following two questions:<br />
+- Why using the Discrete Decoder for computing $L_0$ ?<br />
+- How the other two loss terms: $L_0$ and $L_T$ are dropped or incorporated into the Eq.\ref{eq:lsimple} in DDPM  </p>
+<h3>1.2 What builds current DDPM ?</h3>
+<!-- What is the improvement proposed in DDPM[2] that makes diffusion models capable of generating realistic images? -->
+
+<!-- ### Conclusion -->
+
+<h3>References</h3>
+<p>[1] https://lilianweng.github.io/posts/2021-07-11-diffusion-models/<br />
 [2]<br />
 [3] </p> </div>
 </div>
