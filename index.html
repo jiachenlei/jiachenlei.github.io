@@ -1,7 +1,55 @@
-{% extends 'base.html'  %}
+<html>
+<header>
+    <title> Jiachen Lei's Home Page</title>
 
+    <style>
+        body {
+            padding:0;
+            margin:0;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .navigate {
+            width: 100%;
+            height: 3em;
+            background-color: hsla(0,0%,94.1%,.9);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: 140px;
+            margin-left: 140px;
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .navbar-brand{
+            display: inline-block;
+            padding-top: .3125rem;
+            padding-bottom: .3125rem;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+        .navbar-nav{
+            display: flex!important;
+        }
+        .nav-link{
+            display: block;
+            color: rgba(0,0,0,.5);
+            padding: .5rem 1rem;
+            text-decoration: none;
+            background-color: transparent;
+        }
+    </style>
 
-{% block header %}
+    
 
     <style>
         .mp-container{
@@ -37,9 +85,27 @@
 
     </style>
 
-{% endblock %}
 
-{% block content %}
+
+</header>
+
+<body>
+
+<div>
+    <nav class="navigate">
+        <div class="container">
+            <p class="navbar-brand" style="color: rgba(0,0,0,.9)">
+                Welcome to Jiachen Lei's Home Page
+            </p>
+            <div class="navbar-nav"">
+                <a href="/" class="nav-link">Home</a>
+                <!-- <a href="/cv.html" class="nav-link">CV</a> -->
+                <!-- <a href="/blog-nav.html" class="nav-link">Blogs</a> -->
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        
 
 
 <div class="mp-container">
@@ -58,10 +124,118 @@
     </div>
 
     <div class="mp-content">
-        {{ intro|safe }}
+        <p>Welcome to my personal website. I am thrilled to share my journey and experiences with you.</p>
+<p>I hold an M.S. degree from the prestigious <a href="https://icsr.zju.edu.cn/en/">Cyberspace Security Lab</a> at Zhejiang University. During my time there, I had the privilege of being mentored by distinguished professors <a href="https://scholar.google.com/citations?user=dO2kc6kAAAAJ&amp;hl=zh-CN">Prof. Zhongjie Ba</a> and <a href="https://scholar.google.com/citations?user=uuQA_rcAAAAJ&amp;hl=en">Prof. Kui Ren</a>.</p>
+<p>My academic journey has been enriched by diverse experiences, including an internship at Microsoft Research. Under the expert guidance of <a href="https://www.shuangma.me/">Shuang Ma</a>, I had the opportunity to delve into advanced researches in representation learning and contribute to innovative projects.</p>
+<p>Currently, I am passionate about:</p>
+<ul>
+<li>Generative Modeling</li>
+<li>Deepfake</li>
+<li>Representation Learning, etc.</li>
+</ul>
+<h1>News</h1>
+<table style="font-size:20px; width:100%">
+    <tr>
+        <th style="width:15%">
+        </th>
+    </tr>
+    <tr>
+        <td><i>Mar, 2023</i></td>
+        <td> Obtained my M.S. from Zhejiang University! </td>
+    </tr>
+    <tr>
+        <td><i>Jun, 2022</i></td>
+        <td> Birthday of my homepag </td>
+    </tr>
+</table>
+
+<h1>Publications</h1>
+<ul>
+<li><strong> Masked Diffusion Models are Fast and Privacy-perserving Learners </strong><br />
+<strong><em>Jiachen Lei</em></strong>, <em>Peng Cheng, Zhongjie Ba*, Kui Ren</em><br />
+Preprint: <a href="https://arxiv.org/abs/2306.11363"> Link </a></li>
+</ul>
+<div style="display:auto; with=100%; margin-left:10%" >
+    <img src="static/maskdm_pretrain.png" width=70%/>
+</div>
+
+<h1>Awards and Achievements</h1>
+<style>
+    td {
+        padding: 5px;
+        /* margin-bottom: 50px; */
+        /* border: 1px solid #ccc; */
+    }
+</style>
+<table style="font-size:20px; width:100%;">
+    <tr>
+        <th style="width:15%;">
+        </th>
+        <th style="width:85%;">
+        </th>
+        <!-- <th style="width:40%">
+        </th> -->
+    </tr>
+    <tr>
+        <td><i>Mar, 2023</i></td>
+        <td> Excellent postgraduate students'award   </td>
+    </tr>
+    <tr>
+        <td><i>2022</i></td>
+        <td><i>(1) Ego4d Workshop@ECCV 2022:</i></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><i>Result: Win <b>2nd place</b> in both OSCC and PNR-TL challenges</i></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><i>(2) DeepFake Game Competition (DFGC) @ IJCB 2022 Creation Track</i></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><i>Result: Win 3rd place at stage 1 and stage 2</i></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><i>(3) DeepFake Game Competition (DFGC) @ IJCB 2022 Detection Track</i></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><i>Result: Win 4th place</i> </td>
+    </tr>
+    <tr>
+        <td><i>2021</i></td>
+        <td><i>The 3rd Chinese AI Competition: AI based video forgery Track</i></td>
+    </tr>
+     <tr>
+        <td></td>
+        <td><i>Result: <b>A price (2/164)</b></i></td>
+    </tr>
+</table>
+
+<div style="height:200px; font-size:16px">
+</div>
     </div>
 
 </div>
 
 
-{% endblock %}
+
+    </div>
+    <div class="footer">
+
+    </div>
+
+</div>
+
+
+    
+</body>
+
+ 
+
+</html>
+
+
+
