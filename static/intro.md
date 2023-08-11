@@ -38,8 +38,8 @@ Publications
 
 - ** Masked Diffusion Models are Fast and Privacy-perserving Learners **  
 ***Jiachen Lei***, *Peng Cheng, Zhongjie Ba\*, Kui Ren*  
-Preprint: <a href="https://arxiv.org/abs/2306.11363"> Link </a>
-
+Preprint Paper: <a href="https://arxiv.org/abs/2306.11363"> Link </a>
+Project Page: <a href="./maskdm"> Link </a>
 <div style="display:auto; with=100%; margin-left:10%" >
     <img src="static/maskdm_pretrain.png" width=70%/>
 </div>
