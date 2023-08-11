@@ -19,7 +19,7 @@ News
 =====
 <table style="font-size:20px; width:100%">
     <tr>
-        <th style="width:15%">
+        <th style="width:20%">
         </th>
     </tr>
     <tr>
@@ -59,9 +59,9 @@ Awards and Achievements
 </style>
 <table style="font-size:20px; width:100%;">
     <tr>
-        <th style="width:15%;">
+        <th style="width:20%;">
         </th>
-        <th style="width:85%;">
+        <th style="width:80%;">
         </th>
         <!-- <th style="width:40%">
         </th> -->
