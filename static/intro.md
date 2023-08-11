@@ -28,7 +28,7 @@ News
     </tr>
     <tr>
         <td><i>Jun, 2022</i></td>
-        <td> Birthday of my homepag </td>
+        <td> Birthday of my homepage </td>
     </tr>
 </table>
 
@@ -38,8 +38,7 @@ Publications
 
 - ** Masked Diffusion Models are Fast and Privacy-perserving Learners **  
 ***Jiachen Lei***, *Peng Cheng, Zhongjie Ba\*, Kui Ren*  
-Preprint Paper: <a href="https://arxiv.org/abs/2306.11363"> Link </a>
-Project Page: <a href="./maskdm"> Link </a>
+Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a>, Project Page: <a href="./maskdm"> Link </a>
 <div style="display:auto; with=100%; margin-left:10%" >
     <img src="static/maskdm_pretrain.png" width=70%/>
 </div>
