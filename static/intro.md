@@ -36,14 +36,17 @@ News
 Publications
 ====
 
-- ** Masked Diffusion Models are Fast and Privacy-perserving Learners **  
+- ** Masked Diffusion Models are Fast Distribution Learners **  
 ***Jiachen Lei***, *Peng Cheng, Zhongjie Ba\*, Kui Ren*  
 Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a>, Project Page: <a href="./maskdm"> Link </a>
 <div style="display:auto; with=100%; margin-left:10%" >
-    <img src="static/maskdm_pretrain.png" width=70%/>
+    <img src="static/pretrain_maskdm_figure.png" width=70%/>
 </div>
  
-
+- ** SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution **  
+*Zhongjie Ba, Jieming Zhong*, ***Jiachen Lei***, *Peng Cheng, *Kui Ren*  
+Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a>
+ 
 
 
 
