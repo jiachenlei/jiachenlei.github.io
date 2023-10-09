@@ -23,6 +23,10 @@ News
         </th>
     </tr>
     <tr>
+        <td><i>Oct, 2023</i></td>
+        <td> Attending ICCV 2023 conference in Paris, feel free to reach out </td>
+    </tr>
+    <tr>
         <td><i>Mar, 2023</i></td>
         <td> Obtained my M.S. from Zhejiang University! </td>
     </tr>
