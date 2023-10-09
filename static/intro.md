@@ -40,7 +40,7 @@ Publications
 ====
 
 - ** Masked Diffusion Models are Fast Distribution Learners **  
-***Jiachen Lei***, * Qinglong Wang, Peng Cheng, Zhongjie Ba\*, Zhan Qin, Zhibo Wang, Zhenguang Liu, Kui Ren*  
+***Jiachen Lei***, *Qinglong Wang, Peng Cheng, Zhongjie Ba\*, Zhan Qin, Zhibo Wang, Zhenguang Liu, Kui Ren*  
 Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a>
 <div style="display:auto; with=100%; margin-left:10%" >
     <img src="static/pretrain_maskdm_figure.png" width=70%/>
