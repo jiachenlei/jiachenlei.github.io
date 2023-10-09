@@ -1,5 +1,4 @@
 
-Welcome to my personal website. I am thrilled to share my journey and experiences with you.
 
 I hold an M.S. degree from [Cyberspace Security Lab](https://icsr.zju.edu.cn/en/) at Zhejiang University. During my time there, I had the privilege of being mentored by distinguished professors [Prof. Zhongjie Ba](https://scholar.google.com/citations?user=dO2kc6kAAAAJ&hl=zh-CN) and [Prof. Kui Ren](https://scholar.google.com/citations?user=uuQA_rcAAAAJ&hl=en).
 
