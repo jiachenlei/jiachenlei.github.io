@@ -82,9 +82,31 @@
             width: 79%;
         }
 
-
+        .map_btn{
+            border: none;
+            background-color:white;
+            font-size: 20px;
+            transition-duration: 0.4s;
+        }
+        .map_btn:hover{
+            border: none;
+            background-color:white;
+            font-size: 20px;
+            color: blue;
+            cursor: hand;
+        }
     </style>
-
+    <script>
+        function showmap() {
+            let map_obj = document.getElementById("div_map");
+            if(map_obj.style.display == "none"){
+                map_obj.style.display = "block"
+            }else{
+                map_obj.style.display = "none"
+            }
+           
+        }
+    </script>
 
 
 </header>
@@ -120,7 +142,12 @@
             <p><i> Github:<a href="https://github.com/jiachenlei"> https://github.com/jiachenlei</a></i></p>
             <div style="height:20px"></div>
             <p> Currently I am seeking  <b>available Ph.D. position</b>, feel free to reach out to me if you would like to discuss potential opportunities.</p>
+            <div style="height:100px"></div>
+            <!-- <input type="button" class="map_btn" onclick="showmap();" value="Check Visitors:"> -->
 
+            <div  style="width:50%;display:none" id="div_map">
+                <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=64orqPtejNS4SHU4gu_bJLJl9fCtjkKNgrkWpfYRaWU&cl=ffffff&w=a"></script>
+            </div>
         </div>
 
     </div>
@@ -137,7 +164,7 @@
 <h1>News</h1>
 <table style="font-size:20px; width:100%">
     <tr>
-        <th style="width:20%">
+        <th style="width:15%">
         </th>
     </tr>
     <tr>
@@ -156,7 +183,7 @@
 
 <h1>Publications</h1>
 <ul>
-<li><strong> Masked Diffusion Models are Fast Distribution Learners </strong><br />
+<li>(Under review)<strong> Masked Diffusion Models are Fast Distribution Learners </strong> <br />
 <strong><em>Jiachen Lei</em></strong>, <em>Qinglong Wang, Peng Cheng, Zhongjie Ba*, Zhan Qin, Zhibo Wang, Zhenguang Liu, Kui Ren</em><br />
 Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a></li>
 </ul>
@@ -165,7 +192,7 @@ Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a></li>
 </div>
 
 <ul>
-<li><strong> SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution </strong><br />
+<li>(In submission)<strong> SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution </strong>  <br />
 <em>Zhongjie Ba, Jieming Zhong</em>, <strong><em>Jiachen Lei</em></strong>, <em>Peng Cheng, </em>Kui Ren*<br />
 Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a></li>
 </ul>
@@ -179,7 +206,7 @@ Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a></li>
 </style>
 <table style="font-size:20px; width:100%;">
     <tr>
-        <th style="width:20%;">
+        <th style="width:10%;">
         </th>
         <th style="width:80%;">
         </th>
@@ -187,7 +214,7 @@ Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a></li>
         </th> -->
     </tr>
     <tr>
-        <td><i>Mar, 2023</i></td>
+        <td><i>2023</i></td>
         <td> Excellent postgraduate students'award   </td>
     </tr>
     <tr>
@@ -229,7 +256,6 @@ Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a></li>
     </div>
 
 </div>
-
 
 
     </div>

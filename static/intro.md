@@ -18,7 +18,7 @@ News
 =====
 <table style="font-size:20px; width:100%">
     <tr>
-        <th style="width:20%">
+        <th style="width:15%">
         </th>
     </tr>
     <tr>
@@ -39,14 +39,14 @@ News
 Publications
 ====
 
-- ** Masked Diffusion Models are Fast Distribution Learners **  
+- (Under review)** Masked Diffusion Models are Fast Distribution Learners **   
 ***Jiachen Lei***, *Qinglong Wang, Peng Cheng, Zhongjie Ba\*, Zhan Qin, Zhibo Wang, Zhenguang Liu, Kui Ren*  
 Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a>
 <div style="display:auto; with=100%; margin-left:10%" >
     <img src="static/pretrain_maskdm_figure.png" width=70%/>
 </div>
 
-- ** SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution **  
+-  (In submission)** SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution **    
 *Zhongjie Ba, Jieming Zhong*, ***Jiachen Lei***, *Peng Cheng, *Kui Ren*  
 Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a>
 
@@ -61,7 +61,7 @@ Awards and Achievements
 </style>
 <table style="font-size:20px; width:100%;">
     <tr>
-        <th style="width:20%;">
+        <th style="width:10%;">
         </th>
         <th style="width:80%;">
         </th>
@@ -69,7 +69,7 @@ Awards and Achievements
         </th> -->
     </tr>
     <tr>
-        <td><i>Mar, 2023</i></td>
+        <td><i>2023</i></td>
         <td> Excellent postgraduate students'award   </td>
     </tr>
     <tr>
