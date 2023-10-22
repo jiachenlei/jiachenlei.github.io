@@ -7,11 +7,9 @@ My academic journey has been enriched by diverse experiences, including an inter
 
 Currently, I am passionate about:
 
-- Generative Modeling
-- Deepfake
-- Representation Learning, etc.
-
-
+- Generative Modeling: efficiency, theory and its application to various domains.
+- Representation Learning: self-supervised learning method that improves egocentric video understanding ability. 
+- Forgery detection: detecting and identifying fake (AI generated) content.
 
 
 News
@@ -46,7 +44,7 @@ Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a>
     <img src="static/pretrain_maskdm_figure.png" width=70%/>
 </div>
 
--  (In submission)** SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution **    
+-  (Under review)** SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution **    
 *Zhongjie Ba, Jieming Zhong*, ***Jiachen Lei***, *Peng Cheng, *Kui Ren*  
 Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a>
 
