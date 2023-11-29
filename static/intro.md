@@ -50,6 +50,16 @@ Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a>
 <div style="display:auto; with=100%; margin-left:5%" >
     <img src="static/surrogateprompt.png" width=100%/>
 </div>
+
+Technical Reports
+====
+- "Masked Autoencoders for Egocentric Video Understanding @ Ego4D Challenge 2022"  
+***Jiachen Lei**, Shuang Ma, Zhongjie Ba, Kui Ren*  
+Arxiv Link: <a href="https://arxiv.org/abs/2211.15286"> Link </a>
+<div style="display:auto; with=100%; margin-left:5%; height: 200px; overflow: hidden;" >
+    <img src="static/Ego4D-Collage.jpg" width=80%/>
+</div>
+
 Awards and Achievements
 ====
 <style>
