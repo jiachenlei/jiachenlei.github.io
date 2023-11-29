@@ -7,9 +7,9 @@ My academic journey has been enriched by diverse experiences, including an inter
 
 Currently, I am passionate about:
 
-- Generative Modeling: efficiency, theory and its application to various domains.
-- Representation Learning: self-supervised learning method that improves egocentric video understanding ability. 
-- Forgery detection: detecting and identifying fake (AI generated) content.
+- (*Primary*) **Generative Model and 3D reconstruction**: efficiency, theory and its application to various domains.
+- **Perception for human activity understanding**: self-supervised learning method that improves egocentric video understanding ability. 
+- **Security problem of AI - Forgery detection**: detecting and identifying fake (AI generated) content.
 
 
 News
@@ -41,13 +41,15 @@ Publications
 ***Jiachen Lei***, *Qinglong Wang, Peng Cheng, Zhongjie Ba\*, Zhan Qin, Zhibo Wang, Zhenguang Liu, Kui Ren*  
 Preprint Page: <a href="https://arxiv.org/abs/2306.11363"> Link </a>
 <div style="display:auto; with=100%; margin-left:10%" >
-    <img src="static/pretrain_maskdm_figure.png" width=70%/>
+    <img src="static/training_process.png" width=100%/>
 </div>
 
 -  (Under review)** SurrogatePrompt: Bypassing the Safety Filter of Text-To-Image Models via Substitution **    
 *Zhongjie Ba, Jieming Zhong*, ***Jiachen Lei***, *Peng Cheng, *Kui Ren*  
 Preprint Page: <a href="https://arxiv.org/abs/2309.14122"> Link </a>
-
+<div style="display:auto; with=100%; margin-left:5%" >
+    <img src="static/surrogateprompt.png" width=100%/>
+</div>
 Awards and Achievements
 ====
 <style>
