@@ -45,20 +45,23 @@
             <div class="min-h-screen bg-background text-foreground">
                 <header class="container mx-auto px-4 py-6 flex justify-between items-center">
                     <div class="text-2xl font-bold">
-                        Jiachen&#x27;s <a style="color:black;" href="">Home Page</a>
+                        Jiachen&#x27;s <a href="">Home Page</a>
                     </div>
                     <div class="text-2xl font-bold">
                         <a href="blog-nav.html">Blogs</a>
                     </div>
                 </header>
                 <main class="container mx-auto px-4" style="margin-left:3%;">
-                    <section class="py-20 md:py-32 flex flex-col md:flex-row" style="padding-top: 2rem; padding-bottom: 2rem;">
+                    <section id="blog" class="py-20"  style="padding-top: 2rem; padding-bottom: 2rem;">
                         <div class="space-y-10">
                             <div class="flex flex-col md:flex-row">
                                 <div class="md:w-3/4" id="content">
+                                    <h3><a class="text-xl" onclick="showmarkdown('ddpm.md')"> Revisiting The Hidden Secrets in Diffusion models</a></h3>
                                     <ul class="list-disc list-inside mt-2">
-                                        <li><a class="text-xl" onclick="showmarkdown('ddpm.md')"> Revisiting Secrets in Diffusion models</a> 
+                                        <li>
+                                            It's a blog for beginners in generative modeling. The blog introduces the paper DDPM in detail, including the discrete decoder and its connection to VAE.
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -75,7 +78,7 @@
             async function showmarkdown(name){
                 try {
                     // Fetch the Markdown file from your server
-                    const response = await fetch(`blog/${name}.md`);
+                    const response = await fetch(`blog/${name}`);
                     if (!response.ok) throw new Error("File not found");
                     const markdownContent = await response.text();
 
