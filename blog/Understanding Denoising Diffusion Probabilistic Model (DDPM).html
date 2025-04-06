@@ -1,195 +1,124 @@
+<!DOCTYPE html>
 <html>
-<header>
-    <title> Jiachen Lei's Home Page</title>
+    <head>
+        <meta charSet="utf-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <meta name="next-head-count" content="2"/>
+        <link rel="preload" href="next/static/css/89398dd79d9143ca.css" as="style"/>
+        <link rel="stylesheet" href="next/static/css/89398dd79d9143ca.css" data-n-p=""/>
+        <noscript data-n-css=""></noscript>
+        <script defer="" nomodule="" src="next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script>
+        <script src="next/static/chunks/webpack-35b92941fc8726f9.js" defer=""></script>
+        <script src="next/static/chunks/framework-1552a8cb4910e8b4.js" defer=""></script>
+        <script src="next/static/chunks/main-7fd45ce1ee5a9882.js" defer=""></script>
+        <script src="next/static/chunks/pages/_app-6a626577ffa902a4.js" defer=""></script>
+        <script src="next/static/chunks/333-3e66d92038cdaa8d.js" defer=""></script>
+        <script src="next/static/chunks/pages/index-6c76019c6e85dc9b.js" defer=""></script>
+        <script src="next/static/vNduwREMQUAexRUYmls0n/_buildManifest.js" defer=""></script>
+        <script src="next/static/vNduwREMQUAexRUYmls0n/_ssgManifest.js" defer=""></script>
 
-    <style>
-        body {
-            padding:0;
-            margin:0;
-            font-size: 20px;
-            font-family: Arial, sans-serif;
-        }
-        .navigate {
-            width: 100%;
-            height: 3em;
-            background-color: hsla(0,0%,94.1%,.9);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .container {
-            width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: 140px;
-            margin-left: 140px;
-            display:flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        .navbar-brand{
-            display: inline-block;
-            padding-top: .3125rem;
-            padding-bottom: .3125rem;
-            margin-right: 1rem;
-            font-size: 1.25rem;
-            line-height: inherit;
-            white-space: nowrap;
-        }
-        .navbar-nav{
-            display: flex!important;
-        }
-        .nav-link{
-            display: block;
-            color: rgba(0,0,0,.5);
-            padding: .5rem 1rem;
-            text-decoration: none;
-            background-color: transparent;
-        }
-    </style>
-
-    
-<script>
-    MathJax = {
-        tex: {
-            inlineMath: [
-                ['$','$'],
-                    ['\\(','\\)']
-            ],
-            displayMath: [
-                ['$$', '$$'],
-                ['\\[', '\\]']
-            ],
-                
-            tags: 'ams',
-        },
-  
-    };
-</script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
-
-<script>
-
-    function resizeIframe(obj) {
-        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 50 + 'px';
-        // obj.style.width  = "100%";
-    }
-</script>
-
-<style>
-    #blog-frame{
-        margin: 30px 20% 0px 15%;
-        height: auto;
-        width: 70%;
-    }
-
-</style>
+        <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+        <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+        <!-- Load the element definition -->
+        <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
 
-
-</header>
-
-<body>
-
-<div>
-    <nav class="navigate">
-        <div class="container">
-            <p class="navbar-brand" style="color: rgba(0,0,0,.9)">
-                Jiachen Lei
-            </p>
-            <div class="navbar-nav"">
-                <a href="/" class="nav-link">Home</a>
-                <!-- <a href="/cv.html" class="nav-link">CV</a> -->
-                <!-- <a href="/blog-nav.html" class="nav-link">Blogs</a> -->
+        <style>
+                /* unvisited link */
+                a:link {
+                    /* color: #fbc2eb; */
+                    color: #5EA8FF;
+                }
+                /* visited link */
+                a:visited {
+                    color: #5EA8FF;
+                    text-decoration: underline;
+                }
+                /* mouse over link */
+                a:hover {
+                    color: #f6d365;
+                }
+        </style>
+    </head>
+    <body>
+        <div id="__next">
+            <div class="min-h-screen bg-background text-foreground">
+                <header class="container mx-auto px-4 py-6 flex justify-between items-center">
+                    <div class="text-2xl font-bold">
+                        Jiachen&#x27;s <a style="color:black;" href="">Home Page</a>
+                    </div>
+                    <div class="text-2xl font-bold">
+                        <a href="Understanding Denoising Diffusion Probabilistic Model (DDPM).html">Blogs</a>
+                    </div>
+                </header>
+                <main class="container mx-auto px-4" style="margin-left:5%;">
+                    <section class="py-20 md:py-32 flex flex-col md:flex-row items-center" style="padding-top: 2rem; padding-bottom: 2rem;">
+                        <zero-md src="test.md">
+                        </zero-md>
+                        <!-- <div id="markdown-content"> -->
+                        <div class="md:w-2/3" markdown="1" id="content">
+                        </div>
+                        </section>
+                    </main>
+                    <footer class="bg-secondary mt-20 py-10 text-center"><p>© 2023 | Designed and coded with ❤️ by Jiachen Lei</p></footer>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="content">
+        </body>
+        <script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"vNduwREMQUAexRUYmls0n","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script>
+        <script>
+            // Configure marked to use Prism.js
+            // marked.use({
+            //     highlight: (code, lang) => {
+            //         return Prism.highlight(code, Prism.languages[lang], lang);
+            //     }
+            // });
         
-
-<!-- <iframe id = "blog-frame" scrolling="no" style="border:none; min-height:100%;" onload="resizeIframe(this)"></iframe> -->
-<div>
-    <!-- <div id="blog-div-left"> </div> -->
-    <div id="blog-div-plhd" style="visibility:display;margin: 30px 20% 0px 15%"> <h2>Revisiting Denoising Diffusion Probabilistic Model (DDPM): A Tutorial</h2>
-<p>(working in progress)</p>
-<h3>Abstract</h3>
-<p>This blog covered the following topics:<br />
-- Details of DDPM that is not frequently discussed eleswhere. 
-- Connections between DDPM and other generative models, e.g., VAE.
-- Problems of DDPM and explorations that have been made. </p>
-<p><sep></p>
-<h3>Introduction</h3>
-<p>Currently, everyone hears about diffusion models that generate image via "denoising". However, as some important details are not presented in the original paper DDPM[2], it is difficult for newcomers to understand the derivation of the final simplified objective used in the original DDPM paper. Therefore, this blog will cover the "corners" that are seldomly mentioned elsewhere. We will start from deriving the simplified objective in \ref{eq:lsimple}, explaining why we drop some terms from the objective or make unintuitive simplifications.</p>
-<p>is proposed based on the theories presented in [3]. By parameterizing the neural network as a noise predictior $\epsilon_\theta(x_t,t)$, it simplifies the objective that directly compares predicted noise and ground truth:</p>
-<p>$$
-\begin{equation}
-    L_{simple}= \mathop{ \mathbb{E} }_{t\sim U(0,1),\ x_0\sim p(x_0)}  \left\lVert \epsilon_\theta(x_t,t)-\epsilon \right\rVert^2
-     \label{eq:lsimple}
-\end{equation}
-$$</p>
-<p>It's assumed that audiences understand the basics of DDPM[2], such as the definition of forward and reverse processes, the derivation of final simplified objective. Let's review the derivation of the Eq.\ref{eq:lsimple} in details.</p>
-<h3>Section 1</h3>
-<h3>1.1 Revisit details of DDPM</h3>
-<p>In this section, we will answer the following two questions:<br />
-- Why using the Discrete Decoder for computing $L_0$ ?<br />
-- How the other two loss terms: $L_0$ and $L_T$ are dropped or incorporated into the Eq.\ref{eq:lsimple} in DDPM  </p>
-<h3>1.2 What builds current DDPM ?</h3>
-<!-- What is the improvement proposed in DDPM[2] that makes diffusion models capable of generating realistic images? -->
-
-<!-- ### Conclusion -->
-
-<h3>References</h3>
-<p>[1] https://lilianweng.github.io/posts/2021-07-11-diffusion-models/<br />
-[2]<br />
-[3] </p> </div>
-</div>
-
-    </div>
-    <div class="footer">
-
-    </div>
-
-</div>
-
-
-    
-</body>
-
-
-
-<script>
-    function load_frome_iframe(){
-        var frame = document.getElementById("blog-frame")
-        var plhd = document.getElementById("blog-div-plhd")
-        var doc = frame.contentWindow.document
-        doc.open();
-        doc.width = "100%"
-        // doc.write('<link rel="stylesheet" href="https://latex.now.sh/style.css">')
-        doc.write('<div class="blog-container" style="font-size:20px;font-family:Arial;">');
-        doc.write(plhd.innerHTML);
-        doc.write('</div>');
-        doc.close();
-    
-        plhd.remove()
-    }
-    
-    function redirect2topframe(){
-        var aelems = document.body.getElementsByTagName("a")
-        for(let i=0;i<aelems.length;i++){
-            aelems[i].target = "_top";
-        }
-    }
-    // redirect2topframe();
-    // load_frome_iframe();
-</script>
-
-
-
-</html>
+            // Your markdown content
+            const mdContent = ```Revisiting Denoising Diffusion Probabilistic Model (DDPM): A Tutorial```;
+                            // <div id="blog-div-plhd" style="visibility:display;margin: 30px 20% 0px 15%"> <h2>Revisiting Denoising Diffusion Probabilistic Model (DDPM): A Tutorial</h2>
+                            // <p>(working in progress)</p>
+                            // <h3>Abstract</h3>
+                            // <p>This blog covered the following topics:<br />
+                            // - Details of DDPM that is not frequently discussed eleswhere. 
+                            // - Connections between DDPM and other generative models, e.g., VAE.
+                            // - Problems of DDPM and explorations that have been made. </p>
+                            // <p><sep></p>
+                            // <h3>Introduction</h3>
+                            // <p>Currently, everyone hears about diffusion models that generate image via "denoising". However, as some important details are not presented in the original paper DDPM[2], it is difficult for newcomers to understand the derivation of the final simplified objective used in the original DDPM paper. Therefore, this blog will cover the "corners" that are seldomly mentioned elsewhere. We will start from deriving the simplified objective in \ref{eq:lsimple}, explaining why we drop some terms from the objective or make unintuitive simplifications.</p>
+                            // <p>is proposed based on the theories presented in [3]. By parameterizing the neural network as a noise predictior $\epsilon_\theta(x_t,t)$, it simplifies the objective that directly compares predicted noise and ground truth:</p>
+                            // <p>$$
+                            // \begin{equation}
+                            //     L_{simple}= \mathop{ \mathbb{E} }_{t\sim U(0,1),\ x_0\sim p(x_0)}  \left\lVert \epsilon_\theta(x_t,t)-\epsilon \right\rVert^2
+                            //      \label{eq:lsimple}
+                            // \end{equation}
+                            // $$</p>
+                            // <p>It's assumed that audiences understand the basics of DDPM[2], such as the definition of forward and reverse processes, the derivation of final simplified objective. Let's review the derivation of the Eq.\ref{eq:lsimple} in details.</p>
+                            // <h3>Section 1</h3>
+                            // <h3>1.1 Revisit details of DDPM</h3>
+                            // <p>In this section, we will answer the following two questions:<br />
+                            // - Why using the Discrete Decoder for computing $L_0$ ?<br />
+                            // - How the other two loss terms: $L_0$ and $L_T$ are dropped or incorporated into the Eq.\ref{eq:lsimple} in DDPM  </p>
+                            // <h3>1.2 What builds current DDPM ?</h3>
+                            // <!-- What is the improvement proposed in DDPM[2] that makes diffusion models capable of generating realistic images? -->
+                            
+                            // <!-- ### Conclusion -->
+                            
+                            // <h3>References</h3>
+                            // <p>[1] https://lilianweng.github.io/posts/2021-07-11-diffusion-models/<br />
+                            // [2]<br />
+                            // [3] </p> </div>
+                            // </div>
+                            
+                            //     </div>
+                            //     <div class="footer">
+                            
+                            //     </div>
+                            
+                            // </div>
+            // console.log(document.getElementById('content'))
+            // document.getElementById('content').innerHTML = marked.parse(mdContent);
+        </script>
+    </html>
 
 
 
