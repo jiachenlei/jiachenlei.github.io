@@ -1,0 +1,1 @@
+## Revisiting Denoising Diffusion Probabilistic Model (DDPM): A Tutorial
