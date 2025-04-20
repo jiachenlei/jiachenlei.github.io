@@ -43,7 +43,7 @@
     <body>
         <div id="__next">
             <div class="min-h-screen bg-background text-foreground">
-                <header class="container mx-auto px-4 py-6 flex justify-between items-center" style="margin-left:5%">
+                <header class="container mx-auto px-4 py-6 flex justify-between items-center" style="margin-left:auto">
                     <div class="text-2xl font-bold">
                         Jiachen&#x27;s <a href="index.html">Home Page</a>
                     </div>
@@ -51,15 +51,21 @@
                         <a href="blog-nav.html">Blogs</a>
                     </div>
                 </header>
-                <main class="container mx-auto px-4" style="margin-left:5%;">
+                <main class="container mx-auto px-4" style="margin-left:auto;">
                     <section id="blog" class="py-20"  style="padding-top: 2rem; padding-bottom: 2rem;">
                         <div class="space-y-10">
                             <div class="flex flex-col md:flex-row">
                                 <div class="md:w-3/4" id="content">
-                                    <h3><a class="text-xl" onclick="showmarkdown('ddpm.md')"> Revisiting The Hidden Secrets in Diffusion models</a></h3>
+                                    <h4><a class="text-xl" onclick="showmarkdown('ddpm.md')"> Revisiting The Hidden Secrets in Diffusion models</a></h4>
                                     <ul class="list-disc list-inside mt-2">
                                         <li>
                                             It's a blog for beginners in generative modeling. The blog introduces the paper DDPM in detail, including the discrete decoder and its connection to VAE.
+                                        </li>
+                                    </ul>
+                                    <h4><a class="text-xl" onclick="showmarkdown('rfvsdm.md')">Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice</a></h4>
+                                    <ul class="list-disc list-inside mt-2">
+                                        <li>
+                                            In this blog, we analyze why diffusion model performs bad when comparing with rectified flow in practice. Then, we discuss key aspects to condier when cooking a diffusion model.
                                         </li>
 
                                     </ul>
