@@ -35,9 +35,12 @@ $$
 Here, $\bar{\bm{w}}$ is the standard Wiener process when time flow backwards from $T$ to $0$. $dt$ is an infinitesimal negative timestep. $p_t(\bm{x})$ denotes the probability distribution of sample $\bm{x}(t)$ at time step $t$. As a result, given the score function at time step $t$, we can sample along the reverse process and simulate to generate data from $p_0$.
 
 The score of the marginal distribution can be approximated by the following score matching objective:
+
 $$
-\theta^* = \argmin_\theta  \mathop{\mathbb{E}}_{t} \bigl\{ \lambda(t)\mathop{\mathbb{E}}_{\bm{x}(0)}\mathop{\mathbb{E}}_{\bm{x}(t)\mid\bm{x}(0)} \big[ || s_{\bm{\theta}}(\bm{x}(t), t) - \nabla_{\bm{x}(t)}\log p_t(\bm{x}(t)\mid\bm{x}(0)) ||^2_2 \bigr] \bigr\}, \tag{1}
+\theta^* = \argmin_\theta  \mathop{\mathbb{E}}_{t} \bigl\{ \lambda(t)\mathop{\mathbb{E}}_{\bm{x}(0)}\mathop{\mathbb{E}}_{\bm{x}(t)\mid\bm{x}(0)} \big[ || s_{\bm{\theta}}(\bm{x}(t), t) - \nabla_{\bm{x}(t)}\log p_t(\bm{x}(t)\mid\bm{x}(0)) ||^2_2 \bigr] \bigr\}, 
+\tag{1}
 $$
+
 where $\lambda(t)$ is a weighting funciton, $t$ is uniformly sampled over $[0,T]$, $\bm{x}(0)\sim p_0(\bm{x})$, $\bm{x}(t) \sim p_{0t}(\bm{x}(t)\mid\bm{x}(0))$, which denotes the transition kernel from $0$ to $t$. It has the general form:
 $$
 p_{0t}(\bm{x}(t)\mid\bm{x}(0)) = \mathcal{N}(\bm{x}(t);s(t)\bm{x}(0), s(t)^2\sigma(t)^2\mathbf{I}),
@@ -86,7 +89,6 @@ $$
 
 Although the model prediction is also multiplied by a coefficient $t$, the prediction error remains constrained. This is because $t$ ranges in $[0,1]$ in RFs. In addition, the RFs' training velocity objective also provides a practically better training dynamics by making the training more robust, reducing unexpected prediction error made by $D_{\bm{\theta}}$. To demonstrate this, we decompose the training objective in Equation 2 at time $t$ into a irreducible constant error and approximation error:
 $$
-   
    \mathop{\mathbb{E}}\bigl[\underbrace{||(\bm{x}(1) - \bm{x}(0)) - \mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0) \mid \bm{x}(t)] ||^2_2}_{\text{irreducible constant error}} + \underbrace{||v_{\bm{\theta}}(\bm{x}(t), t) - \mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0) \mid \bm{x}(t)]||^2_2}_{\text{approximation error}} \bigr].
 $$
 The irreducible constant error is the lower bound of the optimization objective at time $t$ while the approximation error determines how good the model performs. An optimal training dynamics largely benefits model convergence and pushes the approximation error to near zero. The analysis on the decomposed training objective is also applicable to diffusion models, where the optimal solution for Equation 1 is $\mathop{\mathbb{E}}[\bm{x}(0) \mid\bm{x}(t)]$ .
@@ -99,9 +101,10 @@ s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{\bm{x}(t)-[c_{out}(t)*D_{\bm{\theta}}(\bm
 $$
 where $c_{out}(t)$ and $c_{skip}(t)$ is the scalar function. The training objective becomes:
 $$
-    \argmin_\theta \mathop{\mathbb{E}}\bigl[c_{out}(t)^2\cdot||D_{\bm{\theta}}(\bm{x}(t),t) - \frac{1}{c_{out}}(\bm{x}_0 - c_{skip}\bm{x}(t) ) ||^2_2 \bigr]
+    \argmin_\theta \mathop{\mathbb{E}}\bigl[c_{out}(t)^2\cdot ||D_{\bm{\theta}}(\bm{x}(t),t) - \frac{1}{c_{out}}(\bm{x}_0 - c_{skip}\bm{x}(t) ) ||^{2}_{2} \bigr]
 $$
-As demonstrated in Figure 1, for $$ $c_{out}(t)$ and $c_{skip}(t)$ are chosen such that the variance of effective target equals to 1: $Var[\frac{1}{c_{out}}(\bm{x}_0 - c_{skip}\bm{x}(t)]=1$. Besides, when $t=T_{max}$, $c_{skip}(t)=0$, $D_{\bm{\theta}}$ predicts signal $\bm{x}(0)$; when $t=T_{min}$, $c_{out}(t)=0$, $D_{\bm{\theta}}$ predicts $\bm{\epsilon}$. The above design ensures the model prediction error is amplified as little as possible across all time steps. By adopting the parameterization and preconditioning, the training is more stable and robust, as evidenced by the experiments in EDM (Table 2 in EDM).
+
+As demonstrated in Figure 1, for $c_{out}(t)$ and $c_{skip}(t)$ are chosen such that the variance of effective target equals to 1: $Var[\frac{1}{c_{out}}(\bm{x}_0 - c_{skip}\bm{x}(t)]=1$. Besides, when $t=T_{max}$, $c_{skip}(t)=0$, $D_{\bm{\theta}}$ predicts signal $\bm{x}(0)$; when $t=T_{min}$, $c_{out}(t)=0$, $D_{\bm{\theta}}$ predicts $\bm{\epsilon}$. The above design ensures the model prediction error is amplified as little as possible across all time steps. By adopting the parameterization and preconditioning, the training is more stable and robust, as evidenced by the experiments in EDM (Table 2 in EDM).
 
 <img src="cskip_cout.png" width=400 style="display:block; margin:auto"> 
 
@@ -156,7 +159,7 @@ Takeaways:
 
 Given the denoising score matching training objective:
 $$
-\theta^* = \argmin_\theta  \mathop{\mathbb{E}}_{t} \bigl\{ \lambda(t)\mathop{\mathbb{E}}_{\bm{x}(0)}\mathop{\mathbb{E}}_{\bm{x}(t)\mid\bm{x}(0)} \big[ || s_{\bm{\theta}}(\bm{x}(t), t) - \nabla_{\bm{x}(t)}\log p_t(\bm{x}(t)\mid\bm{x}(0)) ||^2_2 \bigr] \bigr\},
+\theta^* = \argmin_{\theta}  \mathbb{E}_{t} \bigl\{ \lambda(t)\mathop{\mathbb{E}}_{\bm{x}(0)}\mathop{\mathbb{E}}_{\bm{x}(t)\mid\bm{x}(0)} \big[ || s_{\bm{\theta}}(\bm{x}(t), t) - \nabla_{\bm{x}(t)}\log p_t(\bm{x}(t)\mid\bm{x}(0)) ||^2_2 \bigr] \bigr\},
 $$
 
 Then, we derive the exact minimum of the above equation at time $t$. Decompose the norm, we have:
