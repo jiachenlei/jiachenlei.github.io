@@ -22,7 +22,7 @@
         <!-- Load the element definition -->
         <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
           -->
-          <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script> -->
+          <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
         <script type="module">
           import ZeroMd from 'https://cdn.jsdelivr.net/npm/zero-md@3'
         
@@ -156,16 +156,16 @@
     const container = document.getElementById("content");
     container.innerHTML = '';
     
-    const zeroMd = document.createElement('zero-md');
+    const zeromd_comp = document.createElement('zero-md');
     // zeroMd.setAttribute('no-shadow', '');
 
     const script = document.createElement('script');
     script.type = 'text/markdown';
     script.textContent = markdownContent;
 
-    zeroMd.appendChild(script);
-    zeroMd.render();
-    container.appendChild(zeroMd);
+    zeromd_comp.appendChild(script);
+    zeromd_comp.render();
+    container.appendChild(zeromd_comp);
 
     // // Enhanced rendering handler
     // const typesetMath = () => {
