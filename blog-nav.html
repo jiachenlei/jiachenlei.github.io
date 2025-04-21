@@ -39,13 +39,6 @@
             }
           })
         </script>
-        <script>
-          function showmarkdown(name){
-
-        console.log(name);
-      console.log(fetch(`./blog/${name}`));
-              }
-    </script>
 
         <style>
                 /* unvisited link */
@@ -83,7 +76,7 @@
                                     <ul class="list-disc list-inside mt-2">
                                         <div style="margin-bottom:2%;">
                                         <li>
-                                            <a href="" style="font-weight:bold;" onclick="showmarkdown('ddpm.md')"> Revisiting The Hidden Secrets in Diffusion models</a>
+                                            <a style="font-weight:bold;" onclick="showmarkdown('ddpm.md')"> Revisiting The Hidden Secrets in Diffusion models</a>
                                         </li>
                                         <p>
                                             It's a blog for beginners in generative modeling. The blog introduces the paper DDPM in detail, including the discrete decoder and its connection to VAE.
@@ -91,7 +84,7 @@
                                         </div>
                                         <div style="margin-bottom:2%;">
                                         <li>
-                                            <a href="" style="font-weight:bold;" onclick="showmarkdown('rfvsdm.md')">Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice</a>
+                                            <a style="font-weight:bold;" onclick="showmarkdown('rfvsdm.md')">Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice</a>
                                         </li>
                                         <p>
                                         In this blog, we analyze why diffusion model performs bad when comparing with rectified flow in practice. Then, we discuss key aspects to condier when cooking a diffusion model.
@@ -112,60 +105,34 @@
         <!-- <script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"vNduwREMQUAexRUYmls0n","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script> -->
 
        <script>
-      //       async function showmarkdown(name){
-      //           try {
-      // console.log(name);
-      // console.log(fetch(`./blog/${name}`));
-    // const response = await fetch(`./blog/${name}`);
-    // console.log(response);
-    // if (!response.ok) throw new Error("File not found");
-    // const markdownContent = await response.text();
-    // console.log(markdownContent);
-    // const container = document.getElementById("content");
-    // container.innerHTML = '';
+            async function showmarkdown(name){
+                try {
+      console.log(name);
+      console.log(fetch(`./blog/${name}`));
+      const response = await fetch(`./blog/${name}`);
+      console.log(response);
+      if (!response.ok) throw new Error("File not found");
+      const markdownContent = await response.text();
+      console.log(markdownContent);
+      const container = document.getElementById("content");
+      container.innerHTML = '';
 
-    // const zeromd_comp = document.createElement('zero-md');
-    // const script = document.createElement('script');
-    // script.type = 'text/markdown';
-    // script.textContent = markdownContent;
+      const zeromd_comp = document.createElement('zero-md');
+      const script = document.createElement('script');
+      script.type = 'text/markdown';
+      script.textContent = markdownContent;
 
-    // zeromd_comp.appendChild(script);
-    // // zeromd_comp.render();
-    // container.appendChild(zeromd_comp);
+      zeromd_comp.appendChild(script);
+      zeromd_comp.render();
+      container.appendChild(zeromd_comp);
 
     // container.innerHTML = markdownContent;
 
-    // // Enhanced rendering handler
-    // const typesetMath = () => {
-    //   console.log('Starting MathJax typesetting...');
-    //   MathJax.typesetPromise().then(() => {
-    //     console.log('MathJax typesetting complete');
-    //   }).catch(err => {
-    //     console.error('MathJax typeset error:', err);
-    //   });
-    // };
-
-    // // Handle async dependencies
-    // const checkDependencies = () => {
-    //   if (!window.MathJax?.startup?.output) {
-    //     console.debug('MathJax not ready yet, waiting...');
-    //     setTimeout(checkDependencies, 100);
-    //     return;
-    //   }
-      
-    //   if (!zeroMd.rendered) {
-    //     zeroMd.addEventListener('zero-md-rendered', typesetMath, {once: true});
-    //   } else {
-    //     typesetMath();
-    //   }
-    // };
-
-    // checkDependencies();
     
-//   } catch (error) {
-//     console.error("Error loading Markdown:", error);
-//   }
-// }
+  } catch (error) {
+    console.error("Error loading Markdown:", error);
+  }
+}
     </script>
 </html>
 
