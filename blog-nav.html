@@ -20,8 +20,8 @@
         <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
         <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
         <!-- Load the element definition -->
-        <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
-        
+        <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+         -->
         <script type="module">
           import ZeroMd from 'https://cdn.jsdelivr.net/npm/zero-md@3'
         
@@ -145,7 +145,7 @@
         <script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"vNduwREMQUAexRUYmls0n","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script>
         <script>
             async function showmarkdown(name){
-                try {
+                // try {
     const response = await fetch(`blog/${name}`);
     if (!response.ok) throw new Error("File not found");
     const markdownContent = await response.text();
@@ -159,8 +159,9 @@
     const script = document.createElement('script');
     script.type = 'text/markdown';
     script.textContent = markdownContent;
-    
+
     zeroMd.appendChild(script);
+    zeroMd.render();
     container.appendChild(zeroMd);
 
     // // Enhanced rendering handler
@@ -190,9 +191,9 @@
 
     // checkDependencies();
     
-  } catch (error) {
-    console.error("Error loading Markdown:", error);
-  }
+  // } catch (error) {
+  //   console.error("Error loading Markdown:", error);
+  // }
 }
     </script>
 </html>
