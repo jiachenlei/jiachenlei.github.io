@@ -154,16 +154,16 @@
     const container = document.getElementById("content");
     container.innerHTML = '';
 
-    const zeromd_comp = document.createElement('zero-md');
-    // zeroMd.setAttribute('no-shadow', '');
+    // const zeromd_comp = document.createElement('zero-md');
+    // const script = document.createElement('script');
+    // script.type = 'text/markdown';
+    // script.textContent = markdownContent;
 
-    const script = document.createElement('script');
-    script.type = 'text/markdown';
-    script.textContent = markdownContent;
+    // zeromd_comp.appendChild(script);
+    // // zeromd_comp.render();
+    // container.appendChild(zeromd_comp);
 
-    zeromd_comp.appendChild(script);
-    zeromd_comp.render();
-    container.appendChild(zeromd_comp);
+    container.innerHTML = markdownContent;
 
     // // Enhanced rendering handler
     // const typesetMath = () => {
