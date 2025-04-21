@@ -145,7 +145,7 @@
         <script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"vNduwREMQUAexRUYmls0n","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script>
         <script>
             async function showmarkdown(name){
-                // try {
+                try {
     const response = await fetch(`blog/${name}`);
     if (!response.ok) throw new Error("File not found");
     const markdownContent = await response.text();
@@ -191,9 +191,9 @@
 
     // checkDependencies();
     
-  // } catch (error) {
-  //   console.error("Error loading Markdown:", error);
-  // }
+  } catch (error) {
+    console.error("Error loading Markdown:", error);
+  }
 }
     </script>
 </html>
