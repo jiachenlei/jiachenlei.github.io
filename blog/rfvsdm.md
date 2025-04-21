@@ -22,6 +22,7 @@ Let's first revisit the mathmatical details of diffusion model and rectified flo
 **Diffusion Model** 
 
 A diffusion model is mathematically defined by the forward process. In SDE, the forward SDE can be written as:
+
 $$
     d\bm{x}=f(\bm{x},t)dt + g(t)d\bm{w},
 $$
@@ -29,6 +30,7 @@ where $f(\cdot,t): R^{d}\rightarrow R^{d}$ is a vector-valued function known as 
 When sampling along the forward process, we could generate a series of samples $\{\bm{x}(t)\}_{t=0}^{T}$ indexed by a continous time variable $t\in[0, T]$, such that $\bm{x}(0) \sim p_0$ and $\bm{x}(T) \sim p_T$. $p_0$ is the target data distribution for which we have i.i.d samples for training our model, while $p_T$ is commonly chosen as a Gaussian distribution $\mathcal{N}(0, \sigma(T)^2\mathbf{I})$.
 
 Given the forward SDE, we have the corresponding reverse SDE that starts from $p_T$ to $p_0$.
+
 $$
      d\bm{x}=(f(\bm{x},t)-g(t)^2\nabla_x\log p_t(\bm{x}))dt + g(t)d\bar{\bm{w}}.
 $$
@@ -42,10 +44,12 @@ $$
 $$
 
 where $\lambda(t)$ is a weighting funciton, $t$ is uniformly sampled over $[0,T]$, $\bm{x}(0)\sim p_0(\bm{x})$, $\bm{x}(t) \sim p_{0t}(\bm{x}(t)\mid\bm{x}(0))$, which denotes the transition kernel from $0$ to $t$. It has the general form:
+
 $$
 p_{0t}(\bm{x}(t)\mid\bm{x}(0)) = \mathcal{N}(\bm{x}(t);s(t)\bm{x}(0), s(t)^2\sigma(t)^2\mathbf{I}),
 $$
 where 
+
 $$
     s(t) = \exp(\int_0^t{f(\xi)d\xi}), \sigma(t) = \sqrt{\int_0^t{\frac{g(\xi)^2}{s(\xi)^2}}d\xi},
 $$
@@ -53,6 +57,7 @@ where we assume a linear drift coefficient: $f(\bm{x}, t) = f(t)\bm{x}$.
 <!-- The training objective ensures that the optimal solution $\bm{s_\theta^*}(\bm{x}(t), t)$ equals $\nabla_x\log p_t(\bm{x})$ for almost all $\bm{x}$ and $t$. -->
 
 Given the definition of the transition kernel, the score of the conditional distribution can be decomposed as: 
+
 $$
     \nabla_{\bm{x}(t)}\log p_t(\bm{x}(t)\mid\bm{x}(0)) = \frac{\bm{x}(t)-s(t)\bm{x}(0)}{s(t)^2\sigma(t)^2}.
 $$
@@ -66,10 +71,12 @@ For brevity, we consider the diffusion model defined in EDM, where $f(\bm{x}, t)
 **Rectified FLow**
 
 Rather than starting from SDE training to ODE sampling as in diffusion models, the rectified flow proposes approximating a forward ODE with a velocity model $v_{\bm{\theta}}$. The forward ODE is defined as
+
 $$
     \frac{d\bm{x}(t)}{dt} = \bm{x}(1) - \bm{x}(0),
 $$
 where $t\in[0,1]$, $\bm{x}(1)\sim\mathcal{N}(0,\mathbf{I})$, $\bm{x}(0)\sim p_0$. The above ODE moves sample $\bm{x}(0)$ from $p_0$ to $\bm{x}(1)$ in $\mathcal{N}(0,\mathbf{I})$. To transport backwards from $\mathcal{N}(0,\mathbf{I})$ to $p_0$, it proposes to approximate an ODE that yields the same marginal distribution of $\bm{x}(t)$ as the above equation. The training objective is
+
 $$
     \argmin_{\theta}\int_0^1\mathop{\mathbb{E}}\bigl[||(\bm{x}(1)-\bm{x}(0)) - v_{\bm{\theta}}(\bm{x}(t), t)  ||^2_2\bigr]dt, \quad\text{with}\quad\bm{x}(t) = t\bm{x}(1) - (1-t)\bm{x}(0). \tag{2}
 $$
@@ -83,23 +90,27 @@ $$
 When parameterizing the score model with the $\bm{\epsilon}$- or $x$-prediction, DMs are dictated to predict the noise $\bm{\epsilon}$ or $\bm{x}(0)$ at time step $t$. Considering that these two parameterizations only result in different optimization weight coefficient, without loss of generality, let's focus on the weakness of the $\bm{\epsilon}$-prediction formulation. With the $\bm{\epsilon}$-prediction model parameterization, the signal is reconstructed via $\hat{\bm{x}}(0)=\bm{x}(t) - t\cdot D_{\bm{\theta}}(\bm{x}(t),t)$. This leads to the model prediction eror being magnified by a factor of $t$, which introduces excessive error during early sampling process and results in poor sample generation quality in particular when the total discretization steps is small.
 
 In contrast, RFs train $D_{\bm{\theta}}(\bm{x}(t), t)$, $t\in[0,1]$, to predict the velocity $\bm{x}(1)-\bm{x}(0)$. During sampling, we traverse backwards in time step-by-step via:
+
 $$
     \bm{x}(t_{n-1}) = \bm{x}(t_n) - t\cdot D_{\bm{\theta}}(\bm{x}(t_n), t_n),\quad\text{with}\ n\in[0,N]
 $$
 
 Although the model prediction is also multiplied by a coefficient $t$, the prediction error remains constrained. This is because $t$ ranges in $[0,1]$ in RFs. In addition, the RFs' training velocity objective also provides a practically better training dynamics by making the training more robust, reducing unexpected prediction error made by $D_{\bm{\theta}}$. To demonstrate this, we decompose the training objective in Equation 2 at time $t$ into a irreducible constant error and approximation error:
+
 $$
    \mathop{\mathbb{E}}\bigl[\underbrace{||(\bm{x}(1) - \bm{x}(0)) - \mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0) \mid \bm{x}(t)] ||^2_2}_{\text{irreducible constant error}} + \underbrace{||v_{\bm{\theta}}(\bm{x}(t), t) - \mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0) \mid \bm{x}(t)]||^2_2}_{\text{approximation error}} \bigr].
 $$
 The irreducible constant error is the lower bound of the optimization objective at time $t$ while the approximation error determines how good the model performs. An optimal training dynamics largely benefits model convergence and pushes the approximation error to near zero. The analysis on the decomposed training objective is also applicable to diffusion models, where the optimal solution for Equation 1 is $\mathop{\mathbb{E}}[\bm{x}(0) \mid\bm{x}(t)]$ .
 
 For diffusion model, to mitigate model prediction error during training and bring it under control during sampling, it's more reasonable to predict the expected signal $\hat{\bm{x}}(0)$ directly at large $t$.
-As a result, EDM proposes to predict a mixture of noise and clean image at different $t$.å
+As a result, EDM proposes to predict a mixture of noise and clean image at different $t$.
 Specifically, it parameterizes
+
 $$
 s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{\bm{x}(t)-[c_{out}(t)*D_{\bm{\theta}}(\bm{x}(t),t) + c_{skip}\bm{x}(t)]}{t^2},
 $$
 where $c_{out}(t)$ and $c_{skip}(t)$ is the scalar function. The training objective becomes:
+
 $$
     \argmin_\theta \mathop{\mathbb{E}}\bigl[c_{out}(t)^2\cdot ||D_{\bm{\theta}}(\bm{x}(t),t) - \frac{1}{c_{out}}(\bm{x}_0 - c_{skip}\bm{x}(t) ) ||^{2}_{2} \bigr]
 $$
@@ -158,6 +169,7 @@ Takeaways:
 3. Tweedie's formula and its relation to the score $\nabla_x\log p_t(\bm{x})$
 
 Given the denoising score matching training objective:
+
 $$
 \theta^* = \argmin_{\theta}  \mathbb{E}_{t} \bigl\{ \lambda(t)\mathop{\mathbb{E}}_{\bm{x}(0)}\mathop{\mathbb{E}}_{\bm{x}(t)\mid\bm{x}(0)} \big[ || s_{\bm{\theta}}(\bm{x}(t), t) - \nabla_{\bm{x}(t)}\log p_t(\bm{x}(t)\mid\bm{x}(0)) ||^2_2 \bigr] \bigr\},
 $$
