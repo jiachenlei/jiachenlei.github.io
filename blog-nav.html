@@ -145,11 +145,12 @@
         <script>
             async function showmarkdown(name){
                 try {
+      console.log(name);
     const response = await fetch(`blog/${name}`);
-    console.log(response)
+    console.log(response);
     if (!response.ok) throw new Error("File not found");
     const markdownContent = await response.text();
-    console.log(markdownContent)
+    console.log(markdownContent);
     const container = document.getElementById("content");
     container.innerHTML = '';
 
