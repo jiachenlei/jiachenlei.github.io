@@ -21,18 +21,13 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script> -->
         <script type="module">
           import ZeroMd from 'https://cdn.jsdelivr.net/npm/zero-md@3'
-
           customElements.define('zero-md', ZeroMd
           // class extends ZeroMd {
           //   async load() {
           //     await super.load({
           //       katexOptions: {
           //         displayMode: true,
-          //         maxExpand: Infinity,
           //         leqno: true,
-          //         strict:false,
-          //         throwOnError:false,
-          //         escape: true,
           //         macros: {
           //           N: '{\\mathbb{N}}',
           //           Z: '\\mathbb{Z}',
@@ -42,7 +37,6 @@
           //       }
           //     })
           //   }
-          // }
         )
         </script>
 
@@ -82,7 +76,7 @@
                                     <ul class="list-disc list-inside mt-2">
                                         <div style="margin-bottom:2%;">
                                         <li>
-                                            <a style="font-weight:bold;" onclick="showmarkdown('ddpm.md')"> Revisiting The Hidden Secrets in Diffusion models</a>
+                                            <a style="font-weight:bold;" onclick="showmarkdown('')"> Revisiting The Hidden Secrets in Diffusion models</a>
                                         </li>
                                         <p>
                                             It's a blog for beginners in generative modeling. The blog introduces the paper DDPM in detail, including the discrete decoder and its connection to VAE.
@@ -90,7 +84,7 @@
                                         </div>
                                         <div style="margin-bottom:2%;">
                                         <li>
-                                            <a style="font-weight:bold;" onclick="showmarkdown('rfvsdm.md')">Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice</a>
+                                            <a style="font-weight:bold;" onclick="showmarkdown('')">Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice</a>
                                         </li>
                                         <p>
                                         In this blog, we analyze why diffusion model performs bad when comparing with rectified flow in practice. Then, we discuss key aspects to condier when cooking a diffusion model.
@@ -119,7 +113,6 @@
             container = document.getElementById("content");
             container.innerHTML = '';
             var zeroMd = document.createElement('zero-md');
-
             zeroMd.setAttribute("src", `./blog/${name}`);
             // zeroMd.addEventListener('zero-md-ready', (e) => container.appendChild(zeroMd))
             // addEventListener('zero-md-ready', (e) => e.target.render())

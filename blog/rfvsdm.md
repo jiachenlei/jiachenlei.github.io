@@ -3,7 +3,7 @@
 **When considering the task of generating images from Gaussian noise**, the answer is No, meaning that diffusion models could also reach SOTA performance with optimal design choices.
 
 Some Takeaways:
-1. The $\epsilon$- or $\bm{x}$-prediction parameterization amplifies the diffusion model prediction error during sampling and is inferior in maintaining model training robustness. In contrast, the velocity prediction in rectified flow provides better training dynamics, making the training more robust thus further reducing the gap between the exact minimum of the mean-squared optimization objective $\mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0)\mid\bm{x}(t)]$ and the approximated model prediction $D_{\bm{\theta}}(\bm{x}(t),t)$.
+1. The $\epsilon$ or $\bm{x}$ prediction parameterization amplifies the diffusion model prediction error during sampling and is inferior in maintaining model training robustness. In contrast, the velocity prediction in rectified flow provides better training dynamics, making the training more robust thus further reducing the gap between the exact minimum of the mean-squared optimization objective $\mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0)\mid\bm{x}(t)]$ and the approximated model prediction $D_{\bm{\theta}}(\bm{x}(t),t)$.
 2. To enhance model generation quality with the least inference cost, we should pay much attention to the designs of diffusion model, including the forward SDE, pre-conditioning, training objective (loss weight and noise level sampling), recerse ODE, numerical solver and time steps $\{t_n\}_{n=0}^N$.
 
 #### Background
@@ -51,7 +51,7 @@ $$
 where 
 
 $$
-    s(t) = \exp(\int_0^t{f(\xi)d\xi}), \sigma(t) = \sqrt{\int_0^t{\frac{g(\xi)^2}{s(\xi)^2}}d\xi},
+    s(t) = \exp(\displaystyle\int_0^t{f(\xi)d\xi}), \sigma(t) = \sqrt{\int_0^t{\frac{g(\xi)^2}{s(\xi)^2}}d\xi},
 $$
 where we assume a linear drift coefficient: $f(\bm{x}, t) = f(t)\bm{x}$.
 <!-- The training objective ensures that the optimal solution $\bm{s_\theta^*}(\bm{x}(t), t)$ equals $\nabla_x\log p_t(\bm{x})$ for almost all $\bm{x}$ and $t$. -->
@@ -117,7 +117,7 @@ $$
 
 As demonstrated in Figure 1, for $c_{out}(t)$ and $c_{skip}(t)$ are chosen such that the variance of effective target equals to 1: $Var[\frac{1}{c_{out}}(\bm{x}_0 - c_{skip}\bm{x}(t)]=1$. Besides, when $t=T_{max}$, $c_{skip}(t)=0$, $D_{\bm{\theta}}$ predicts signal $\bm{x}(0)$; when $t=T_{min}$, $c_{out}(t)=0$, $D_{\bm{\theta}}$ predicts $\bm{\epsilon}$. The above design ensures the model prediction error is amplified as little as possible across all time steps. By adopting the parameterization and preconditioning, the training is more stable and robust, as evidenced by the experiments in EDM (Table 2 in EDM).
 
-<img src="cskip_cout.png" width=400 style="display:block; margin:auto"> 
+<img src="./blog/cskip_cout.png" width=400 style="display:block; margin:auto"> 
 
 </details>
 
