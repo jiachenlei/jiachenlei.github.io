@@ -39,45 +39,13 @@
             }
           })
         </script>
-        <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script> -->
-        <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@zero-md/[email protected]/dist/zero-md.min.js"></script>
-
         <script>
-            // Enhanced MathJax Configuration
-            window.MathJax = {
-                lloader: {
-    load: ['[tex]/ams', '[tex]/bm', '[tex]/mathtools']
-  },
-  tex: {
-    packages: {'[+]': ['ams', 'bm', 'mathtools']},
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    macros: {
-      '\\bm': '\\mathbf{#1}',
-    // And add
-    '\\boldsymbol': '\\boldsymbol{#1}',
-      '\\argmin': '\\mathop{\\mathrm{arg\\,min}}\\limits',
-      '\\bigr': '\\mathclose{\\mathop{\\vcenter{\\hrule width.5em}}}\\mathclose{}',
-      '\\bigl': '\\mathopen{\\bigg(}',
-      '\\text': '\\textrm',
-      '\\lVert': '\\left\\Vert',
-      '\\rVert': '\\right\\Vert'
-    },
-    processEscapes: true
-  },
-              startup: {
-                typeset: false,
-                // ready: () => {
-                //   MathJax.startup.defaultReady();
-                //   MathJax.startup.input.tex.precompile(
-                //     MathJax.startup.input.tex.packages
-                //   );
-                // }
+          async function showmarkdown(name){
+
+        console.log(name);
+      console.log(fetch(`./blog/${name}`));
               }
-            };
-            </script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
- -->
+    </script>
 
         <style>
                 /* unvisited link */
@@ -164,7 +132,7 @@
     // // zeromd_comp.render();
     // container.appendChild(zeromd_comp);
 
-    container.innerHTML = markdownContent;
+    // container.innerHTML = markdownContent;
 
     // // Enhanced rendering handler
     // const typesetMath = () => {
