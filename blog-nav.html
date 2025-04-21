@@ -146,7 +146,7 @@
             async function showmarkdown(name){
                 try {
       console.log(name);
-    const response = await fetch(`blog/${name}`);
+    const response = await fetch(`./blog/${name}`);
     console.log(response);
     if (!response.ok) throw new Error("File not found");
     const markdownContent = await response.text();
