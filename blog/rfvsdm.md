@@ -3,7 +3,7 @@
 **When considering the task of generating images from Gaussian noise**, the answer is No, meaning that diffusion models could also reach SOTA performance with optimal design choices.
 
 Some Takeaways:
-1. The $\epsilon$- or $\bm{x}$-prediction parameterization amplifies the diffusion model prediction error during sampling and is inferior in maintaining model training robustness. In contrast, the velocity prediction in rectified flow provides better training dynamics, making the training more robust thus further reducing the gap between the exact minimum of the mean-squared optimization objective $\mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0)\mid\bm{x}(t)]$ and the approximated model prediction $D_{\bm{\theta}}(\bm{x}(t),t)$.
+1. The $\epsilon$\- or $\bm{x}$\-prediction parameterization amplifies the diffusion model prediction error during sampling and is inferior in maintaining model training robustness. In contrast, the velocity prediction in rectified flow provides better training dynamics, making the training more robust thus further reducing the gap between the exact minimum of the mean-squared optimization objective $\mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0)\mid\bm{x}(t)]$ and the approximated model prediction $D_{\bm{\theta}}(\bm{x}(t),t)$.
 3. To enhance model generation quality with the least inference cost, we should pay much attention to the designs of diffusion model, including the forward SDE, pre-conditioning, training objective (loss weight and noise level sampling), recerse ODE, numerical solver and time steps $\{t_n\}_{n=0}^N$.
 
 #### Background
@@ -61,11 +61,11 @@ Given the definition of the transition kernel, the score of the conditional dist
 $$
     \nabla_{\bm{x}(t)}\log p_t(\bm{x}(t)\mid\bm{x}(0)) = \frac{\bm{x}(t)-s(t)\bm{x}(0)}{s(t)^2\sigma(t)^2}.
 $$
-In practice, we typically parameterize the score model $s_{\bm{\theta}}(\bm{x}(t), t)$ as $\epsilon$-prediction or $x$-prediction. Namely:
+In practice, we typically parameterize the score model $s_{\bm{\theta}}(\bm{x}(t), t)$ as $\epsilon$\-prediction or $x$\-prediction. Namely:
 $s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{D_{\bm{\theta}}(\bm{x}(t),t)}{s(t)\sigma(t)}$ or $s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{\bm{x}(t)-s(t)D_{\bm{\theta}}(\bm{x}(t),t)}{s(t)^2\sigma(t)^2}$.
 
 
-For brevity, we consider the diffusion model defined in EDM, where $f(\bm{x}, t)=0$ and $g(t)=\sqrt{2t}$, $t\in[T_{min}, T_{max}]$, $T_{min}=0.002$ and $T_{max}=80$. As a result, we have $s(t)=1$ and $\sigma(t)=t$. The $\epsilon$-prediction and $x$-prediction parameterization can be written as: $s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{D_{\bm{\theta}}(\bm{x}(t),t)}{t}$ and $s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{\bm{x}(t)-D_{\bm{\theta}}(\bm{x}(t),t)}{t^2}$ respectively.
+For brevity, we consider the diffusion model defined in EDM, where $f(\bm{x}, t)=0$ and $g(t)=\sqrt{2t}$, $t\in[T_{min}, T_{max}]$, $T_{min}=0.002$ and $T_{max}=80$. As a result, we have $s(t)=1$ and $\sigma(t)=t$. The $\epsilon$\-prediction and $x$\-prediction parameterization can be written as: $s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{D_{\bm{\theta}}(\bm{x}(t),t)}{t}$ and $s_{\bm{\theta}}(\bm{x}(t), t) = -\frac{\bm{x}(t)-D_{\bm{\theta}}(\bm{x}(t),t)}{t^2}$ respectively.
 
 
 **Rectified FLow**
@@ -87,7 +87,7 @@ $$
 <details>
     <summary> <h4> Section 2: What's the difference between DM and RF? </h4></summary>
 
-When parameterizing the score model with the $\bm{\epsilon}$- or $x$-prediction, DMs are dictated to predict the noise $\bm{\epsilon}$ or $\bm{x}(0)$ at time step $t$. Considering that these two parameterizations only result in different optimization weight coefficient, without loss of generality, let's focus on the weakness of the $\bm{\epsilon}$-prediction formulation. With the $\bm{\epsilon}$-prediction model parameterization, the signal is reconstructed via $\hat{\bm{x}}(0)=\bm{x}(t) - t\cdot D_{\bm{\theta}}(\bm{x}(t),t)$. This leads to the model prediction eror being magnified by a factor of $t$, which introduces excessive error during early sampling process and results in poor sample generation quality in particular when the total discretization steps is small.
+When parameterizing the score model with the $\bm{\epsilon}$\- or $x$\-prediction, DMs are dictated to predict the noise $\bm{\epsilon}$ or $\bm{x}(0)$ at time step $t$. Considering that these two parameterizations only result in different optimization weight coefficient, without loss of generality, let's focus on the weakness of the $\bm{\epsilon}$\-prediction formulation. With the $\bm{\epsilon}$\-prediction model parameterization, the signal is reconstructed via $\hat{\bm{x}}(0)=\bm{x}(t) - t\cdot D_{\bm{\theta}}(\bm{x}(t),t)$. This leads to the model prediction eror being magnified by a factor of $t$, which introduces excessive error during early sampling process and results in poor sample generation quality in particular when the total discretization steps is small.
 
 In contrast, RFs train $D_{\bm{\theta}}(\bm{x}(t), t)$, $t\in[0,1]$, to predict the velocity $\bm{x}(1)-\bm{x}(0)$. During sampling, we traverse backwards in time step-by-step via:
 
@@ -147,7 +147,7 @@ There're several questions that remain to be further explored. I'll answer them 
 > - Minimizing Trajectory Curvature of ODE-based Generative Models: study the relationship between sampling curvature and forward process. It proposes that the curvature is determined by the coupling degree between noise $\epsilon$ and clean data $\bm{x}$ or, more simply, the way we sample the training data pair ($\epsilon$, $\bm{x}$). This is similar rationale of the immiscible diffusion paper which "pairs" $\bm{x}$ with the noise $\epsilon$ that is closest to $\bm{x}$ in Euclidean distance.
 > - Accelerating Diffusion Training with Noise Assignment
 
-- In the context of DMs, if we train DM (VP-SDE) by adopting the F-prediction in EDM and sample via the $\epsilon$-prediction (thus the sampling amplifies the model prediction error), would this improve the model generation performance in comparison with the counterpart trained with $\epsilon$-prediction (also sample with $\epsilon$-prediction)? Moreover, would sampling with v-prediction improve the model generation performance even when parameterized with $\epsilon$-prediction ?
+- In the context of DMs, if we train DM (VP-SDE) by adopting the F-prediction in EDM and sample via the $\epsilon$\-prediction (thus the sampling amplifies the model prediction error), would this improve the model generation performance in comparison with the counterpart trained with $\epsilon$\-prediction (also sample with $\epsilon$\-prediction)? Moreover, would sampling with v-prediction improve the model generation performance even when parameterized with $\epsilon$\-prediction ?
 
 - Can we transform RFs to DMs and vice versa? A theoretical analysis
 

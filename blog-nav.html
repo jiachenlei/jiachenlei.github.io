@@ -112,7 +112,12 @@
           response.text().then((value)=>{
             container = document.getElementById("content");
             container.innerHTML = '';
-            var zeroMd = document.createElement('zero-md', {src: `./blog/${name}`} );
+            var zeroMd = document.createElement('zero-md');
+
+            zeroMd.setAttribute("src", `./blog/${name}`);
+            // zeroMd.addEventListener('zero-md-ready', (e) => container.appendChild(zeroMd))
+            // addEventListener('zero-md-ready', (e) => e.target.render())
+            zeroMd.render()
             container.appendChild(zeroMd);
         })
         }
