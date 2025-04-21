@@ -27,7 +27,7 @@
               await super.load({
                 katexOptions: {
                   displayMode: true,
-                  leqno:true,
+                  leqno: true,
                   macros: {
                     N: '{\\mathbb{N}}',
                     Z: '\\mathbb{Z}',
@@ -107,24 +107,19 @@
        <script>
             async function showmarkdown(name){
                 try {
-      console.log(name);
-      console.log(fetch(`./blog/${name}`));
       const response = await fetch(`./blog/${name}`);
-      console.log(response);
       if (!response.ok) throw new Error("File not found");
       const markdownContent = await response.text();
-      console.log(markdownContent);
       const container = document.getElementById("content");
       container.innerHTML = '';
 
-      const zeromd_comp = document.createElement('zero-md');
-      const script = document.createElement('script');
-      script.type = 'text/markdown';
-      script.textContent = markdownContent;
-
-      zeromd_comp.appendChild(script);
-      zeromd_comp.render();
-      container.appendChild(zeromd_comp);
+      const zeroMd = document.createElement('zero-md', {src: `./blog/${name}`} );
+      // const script = document.createElement('script');
+      // script.type = 'text/markdown';
+      // script.textContent = " addEventListener('zero-md-ready', (e) => e.target.render())\n" + markdownContent;
+      // zeroMd.setAttribute("", "no-auto")
+      // zeroMd.appendChild(script);
+      container.appendChild(zeroMd);
 
     // container.innerHTML = markdownContent;
 
