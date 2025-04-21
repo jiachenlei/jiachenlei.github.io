@@ -22,7 +22,26 @@
         <!-- Load the element definition -->
         <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
         
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@zero-md/[email protected]/dist/zero-md.min.js"></script>
+        <script type="module">
+          import ZeroMd from 'https://cdn.jsdelivr.net/npm/zero-md@3'
+        
+          customElements.define('zero-md', class extends ZeroMd {
+            async load() {
+              await super.load({
+                katexOptions: {
+                  macros: {
+                    N: '{\\mathbb{N}}',
+                    Z: '\\mathbb{Z}',
+                    Q: '\\mathbb{Q}',
+                    R: '\\mathbb{R}'
+                  }
+                }
+              })
+            }
+          })
+        </script>
+        
+        <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@zero-md/[email protected]/dist/zero-md.min.js"></script>
 
         <script>
             // Enhanced MathJax Configuration
@@ -59,7 +78,7 @@
             };
             </script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+ -->
 
         <style>
                 /* unvisited link */
@@ -97,7 +116,7 @@
                                     <ul class="list-disc list-inside mt-2">
                                         <div style="margin-bottom:2%;">
                                         <li>
-                                            <a href="" style="font-weight:bold;" onclick="showmarkdown()"> Revisiting The Hidden Secrets in Diffusion models</a>
+                                            <a href="" style="font-weight:bold;" onclick="showmarkdown('ddpm.md')"> Revisiting The Hidden Secrets in Diffusion models</a>
                                         </li>
                                         <p>
                                             It's a blog for beginners in generative modeling. The blog introduces the paper DDPM in detail, including the discrete decoder and its connection to VAE.
@@ -105,7 +124,7 @@
                                         </div>
                                         <div style="margin-bottom:2%;">
                                         <li>
-                                            <a href="" style="font-weight:bold;" onclick="showmarkdown()">Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice</a>
+                                            <a href="" style="font-weight:bold;" onclick="showmarkdown('rfvsdm.md')">Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice</a>
                                         </li>
                                         <p>
                                         In this blog, we analyze why diffusion model performs bad when comparing with rectified flow in practice. Then, we discuss key aspects to condier when cooking a diffusion model.
@@ -118,7 +137,7 @@
                         <!-- <div id="markdown-content"> -->
                         </section>
                     </main>
-                    <footer class="bg-secondary mt-20 py-10 text-center"><p>© 2023 | Designed and coded with ❤️ by Jiachen Lei</p></footer>
+                    <!-- <footer class="bg-secondary mt-20 py-10 text-center"><p>© 2023 | Designed and coded with ❤️ by Jiachen Lei</p></footer> -->
                 </div>
             </div>
         </body>
@@ -135,8 +154,8 @@
     container.innerHTML = '';
     
     const zeroMd = document.createElement('zero-md');
-    zeroMd.setAttribute('no-shadow', '');
-    
+    // zeroMd.setAttribute('no-shadow', '');
+
     const script = document.createElement('script');
     script.type = 'text/markdown';
     script.textContent = markdownContent;
@@ -144,32 +163,32 @@
     zeroMd.appendChild(script);
     container.appendChild(zeroMd);
 
-    // Enhanced rendering handler
-    const typesetMath = () => {
-      console.log('Starting MathJax typesetting...');
-      MathJax.typesetPromise().then(() => {
-        console.log('MathJax typesetting complete');
-      }).catch(err => {
-        console.error('MathJax typeset error:', err);
-      });
-    };
+    // // Enhanced rendering handler
+    // const typesetMath = () => {
+    //   console.log('Starting MathJax typesetting...');
+    //   MathJax.typesetPromise().then(() => {
+    //     console.log('MathJax typesetting complete');
+    //   }).catch(err => {
+    //     console.error('MathJax typeset error:', err);
+    //   });
+    // };
 
-    // Handle async dependencies
-    const checkDependencies = () => {
-      if (!window.MathJax?.startup?.output) {
-        console.debug('MathJax not ready yet, waiting...');
-        setTimeout(checkDependencies, 100);
-        return;
-      }
+    // // Handle async dependencies
+    // const checkDependencies = () => {
+    //   if (!window.MathJax?.startup?.output) {
+    //     console.debug('MathJax not ready yet, waiting...');
+    //     setTimeout(checkDependencies, 100);
+    //     return;
+    //   }
       
-      if (!zeroMd.rendered) {
-        zeroMd.addEventListener('zero-md-rendered', typesetMath, {once: true});
-      } else {
-        typesetMath();
-      }
-    };
+    //   if (!zeroMd.rendered) {
+    //     zeroMd.addEventListener('zero-md-rendered', typesetMath, {once: true});
+    //   } else {
+    //     typesetMath();
+    //   }
+    // };
 
-    checkDependencies();
+    // checkDependencies();
     
   } catch (error) {
     console.error("Error loading Markdown:", error);
