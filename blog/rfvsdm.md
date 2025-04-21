@@ -3,7 +3,7 @@
 **When considering the task of generating images from Gaussian noise**, the answer is No, meaning that diffusion models could also reach SOTA performance with optimal design choices.
 
 Some Takeaways:
-<!-- 1. The $\epsilon$\- or $\bm{x}$\-prediction parameterization amplifies the diffusion model prediction error during sampling and is inferior in maintaining model training robustness. In contrast, the velocity prediction in rectified flow provides better training dynamics, making the training more robust thus further reducing the gap between the exact minimum of the mean-squared optimization objective $\mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0)\mid\bm{x}(t)]$ and the approximated model prediction $D_{\bm{\theta}}(\bm{x}(t),t)$. -->
+1. The $\epsilon$- or $\bm{x}$-prediction parameterization amplifies the diffusion model prediction error during sampling and is inferior in maintaining model training robustness. In contrast, the velocity prediction in rectified flow provides better training dynamics, making the training more robust thus further reducing the gap between the exact minimum of the mean-squared optimization objective $\mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0)\mid\bm{x}(t)]$ and the approximated model prediction $D_{\bm{\theta}}(\bm{x}(t),t)$.
 2. To enhance model generation quality with the least inference cost, we should pay much attention to the designs of diffusion model, including the forward SDE, pre-conditioning, training objective (loss weight and noise level sampling), recerse ODE, numerical solver and time steps $\{t_n\}_{n=0}^N$.
 
 #### Background
