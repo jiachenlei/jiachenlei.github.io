@@ -105,28 +105,39 @@
         <!-- <script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"vNduwREMQUAexRUYmls0n","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script> -->
 
        <script>
-            async function showmarkdown(name){
-                try {
-      const response = await fetch(`./blog/${name}`);
-      if (!response.ok) throw new Error("File not found");
-      const markdownContent = await response.text();
-      const container = document.getElementById("content");
-      container.innerHTML = '';
+       function showmarkdown(name){
+                // try {
+      fetch(`./blog/${name}`).then( (response)=>{
+        if(response.ok) {
+          response.text().then((value)=>{
+            container = document.getElementById("content");
+            container.innerHTML = '';
+            var zeroMd = document.createElement('zero-md', {src: `./blog/${name}`} );
+            container.appendChild(zeroMd);
+        })
+        }
+      }, (error) =>{
+        console.log(error)
+      })
+      // if (!response.ok) throw new Error("File not found");
+      // const markdownContent = await response.text();
+      // const container = document.getElementById("content");
+      // container.innerHTML = '';
 
-      const zeroMd = document.createElement('zero-md', {src: `./blog/${name}`} );
+      // const zeroMd = document.createElement('zero-md', {src: `./blog/${name}`} );
       // const script = document.createElement('script');
       // script.type = 'text/markdown';
       // script.textContent = " addEventListener('zero-md-ready', (e) => e.target.render())\n" + markdownContent;
       // zeroMd.setAttribute("", "no-auto")
       // zeroMd.appendChild(script);
-      container.appendChild(zeroMd);
+      // container.appendChild(zeroMd);
 
     // container.innerHTML = markdownContent;
 
     
-  } catch (error) {
-    console.error("Error loading Markdown:", error);
-  }
+  // } catch (error) {
+  //   console.error("Error loading Markdown:", error);
+  // }
 }
     </script>
 </html>
