@@ -1,16 +1,15 @@
-## Is Rectified Flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice?
+## Is rectified flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice?
+
+> April 20, 2025 by Jiachen  
 
 **When considering the task of generating images from Gaussian noise**, the answer is No, meaning that diffusion models could also reach SOTA performance with carefully designed components.
 
 Key Takeaways:
 1. The $\epsilon$ or $\bm{x}$ prediction parameterization amplifies the diffusion model prediction error during sampling and is inferior in maintaining model training robustness. In contrast, the velocity prediction in rectified flow provides better training dynamics, making the training more robust thus further reducing the gap between the exact minimum of the mean-squared optimization objective $\mathop{\mathbb{E}}[\bm{x}(1) - \bm{x}(0)\mid\bm{x}(t)]$ and the approximated model prediction $D_{\bm{\theta}}(\bm{x}(t),t)$.
-2. To enhance model generation quality with the least inference cost, we should pay much attention to the designs of diffusion model, including the forward SDE, pre-conditioning, training objective (loss weighting and noise level sampling), reverse ODE, numerical solver and time steps $\{t_n\}_{n=0}^N$.
+2. To enhance model generation quality with the least inference cost, we should pay much attention to the designs of diffusion model, including the forward SDE, pre-conditioning, training objective (loss weighting and noise level sampling), reverse ODE, numerical solver and time steps $\{t_n\}_{n=0}^N$. But, in practice, if you're new to image generation, 
 
-<!-- #### Background
-With the development of diffusion models and rectified flow, there are discussions  -->
+<!-- Some epirical evidence: with improved theoretical framework and the same training and inference settings (250-step guided sampling), SiT-XL/2 outperforms DiT-XL/2 by 0.21 FID on ImageNet-256,  -->
 
-<!-- <details>
-  <summary><h3>Section 1:  What's the connection between Rectified Flow and Diffusion Model?</h3></summary> -->
 
 <details>
     <summary> <h4>Section 1: Basics of DM and RF </h4></summary>
@@ -83,7 +82,7 @@ $$
 </details>
 
 <details>
-    <summary> <h4> Section 2: What's the difference between DM and RF? </h4></summary>
+    <summary> <h4> Section 2: What's the difference between DM and RF? The training dynamics </h4></summary>
 
 When parameterizing the score model with the $\bm{\epsilon}$\- or $x$\-prediction, the model $D_\theta$ is dictated to predict the noise $\bm{\epsilon}$ or $\bm{x}(0)$ at time step $t$. Considering that these two parameterizations only result in different optimization weight coefficient, without loss of generality, let's focus on analyzing the weakness of the $\bm{\epsilon}$\-prediction formulation. With the $\bm{\epsilon}$\-prediction model parameterization, the signal is reconstructed via $\hat{\bm{x}}(0)=\bm{x}(t) - t\cdot D_{\bm{\theta}}(\bm{x}(t),t)$. This leads to the model prediction eror being magnified by a factor of $t$, which introduces excessive error during early sampling process and results in poor sample generation quality in particular when the total number of discretization step is small.
 
@@ -119,6 +118,11 @@ As demonstrated in Figure 1, for $c_{out}(t)$ and $c_{skip}(t)$ are chosen such 
 
 </details>
 
+
+<details>
+    <summary> <h4> Is RF preferrable due to a straight sampling trajectory?  No</h4></summary>
+    One mistaken concept of RF is its learned sampling trajectory is "straight", leading to a faster sampling and better generation perforamnce. However, this is wrong. <b>RF is preferred in many scenarios primarily because of the simpler and more concise implementation comparing with DM</b>
+</details>
 
 #### Section 3: How to train a diffusion model?
 
