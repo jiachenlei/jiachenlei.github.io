@@ -126,25 +126,33 @@ One mistaken concept of RF is its learned sampling trajectory is "straight", lea
 
 Here, we discuss one toy example to compare the learned sampling trajectories of RF and DM. Consider target data distribution $p(\bm{x}_0) \sim \mathcal{N}(\mu, \sigma^2)$, RF sampling relies the velocity function $v(\bm{x}_t, t)$, which has analytical solution in this scenario. Recall that $\bm{x}_t = (1-t)*\bm{x}_0 + t*\bm{x}_1, \bm{x}_1 \sim \mathcal{N}(0, 1), t\in[0, 1].$
 Take posterior expectation with respect to $x_t$ on both sides, we have:
+
 $$
     E[\bm{x}_t|\bm{x}_t] = (1-t)*E[\bm{x}_0|\bm{x}_t] + t*E[\bm{x}_1|\bm{x_t}]. \tag{3}
 $$
+
 Here, $E[\bm{x}_t|\bm{x}_t]=\bm{x}_t$. Besides, $v(\bm{x}_t, t)=E[\bm{x}_1 - \bm{x}_0|\bm{x}_t] = E[\bm{x}_1 |\bm{x}_t] - E[\bm{x}_0 |\bm{x}_t]$. By substituting it into Eq 3, we have:
+
 $$
     \bm{x}_t = E[\bm{x}_0|\bm{x}_t] + t*v(\bm{x}_t, t).
 $$
+
 With Tweedie's formula, the clean image is $(1-t)\bm{x}_0$, thus we could compute the posterior mean $E[\bm{x}_0|\bm{x}_t]$ by:
+
 $$
     E[(1-t)\bm{x}_0|\bm{x}_t]=(1-t)E[\bm{x}_0|\bm{x}_t]=\bm{x}_t + t^2\nabla_{\bm{x}}\log p_t(\bm{x}_t),\\
     \;
     \\
     \quad\text{with}\quad p_t(\bm{x_t})\sim \mathcal{N}((1-t)*\mu, (1-t)^2*\sigma^2 + t^2; \bm{x}_t)
 $$
+
 $\nabla_{\bm{x}}\log p_t(\bm{x}_t)=-\frac{\bm{x}_t-(1-t)*\mu}{(1-t)^2*\sigma^2 + t^2}$, Therefore, we have:
+
 $$
     \bm{x}_t = \frac{1}{1-t}[\bm{x}_t - t^2 * \frac{\bm{x}_t-(1-t)*\mu}{(1-t)^2*\sigma^2 + t^2}] + t*v(\bm{x}_t, t) \\
     v(\bm{x}_t, t) = \frac{(t-(1-t)\sigma^2)\bm{x}_t-t\mu}{(1-t)^2*\sigma^2 + t^2}
 $$
+
 By setting $\mu=-4, \sigma=1$, we could plot its sampling trajectory in Fig 2. Similarly, we could derive the score function thus the analytic solution of EDM's ODE sampling function (described above).
 <img src="../static/ODE_sample_traj.png" width=100%>
 <center> Figure 2: (Left) Sampling trajectory of RF, where we start from a noise data point 1.14 and reach data point -2.86. (Middle) ODE sampling trajectory of DM, where we start from a noise data point 85.51 and reach data point -2.88. (Right) Zoom in of DM's ODE sampling trajectory within the time range [0, 20].</center>
