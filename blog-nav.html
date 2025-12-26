@@ -112,10 +112,17 @@
                                         </p>
                                         <br>
                                          <p>
-                                        3. Flexible patch size for ViT: How should we resize patch embedding?, Links: <a href="https://arxiv.org/pdf/2212.08013">1</a>
+                                        3. Flexible patch size for ViT: How should we resize patch embedding? Links: <a href="https://arxiv.org/pdf/2212.08013">1</a>
                                         </p>
                                         <p>
                                             Conclusion: Start from principled experiment, the authors propose PI-Resize (a combination of transformation matrixs derived from bilinear interpolation) for "losslessly" upsampling weight embedding.
+                                        </p>
+                                        <br>
+                                         <p>
+                                        4. Why scaling qk by $\frac{1}{d}$ in Transformer? Links: <a href="https://x.com/viplismism/status/2003807608571076782">1</a>, <a href="https://spaces.ac.cn/archives/8823">2</a>
+                                        </p>
+                                        <p>
+                                            Conclusion: To prevent the qk value increase with embedding dimension, leading to saturated softmax and one-hot attention matrix.
                                         </p>
                                         <br>
                                         </div>
