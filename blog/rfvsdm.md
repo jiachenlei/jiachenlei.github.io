@@ -157,6 +157,7 @@ By setting $\mu=-4, \sigma=1$, we could plot its sampling trajectory in Fig 2. S
 <img src="../static/ODE_sample_traj.png" width=100%>
 <center> Figure 2: (Left) Sampling trajectory of RF, where we start from a noise data point 1.14 and reach data point -2.86. (Middle) ODE sampling trajectory of DM, where we start from a noise data point 85.51 and reach data point -2.88. (Right) Zoom in of DM's ODE sampling trajectory within the time range [0, 20].</center>
 
+<br>
 In the above examples, an interesting observation is that both sampling trajectories of diffusion model and flow model have a liner-nonlinear-linear structure. In [], the authors discuss this phenomenon within the context of diffusion model. They point out that the high-dimensional trajectories can be well-represented by a 3D sub-space.  This is because each trajectory exhibits a very small deviation from the straight line joining its beginning (initial noise) and end points (denoised output). As a result, in the 3D sub-space, the trajectory shows a "boomerange" shape.
 
 
