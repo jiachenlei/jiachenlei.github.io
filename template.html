@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Jiachen Lei</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+                :root {
+            --google-blue: #1a73e8;
+            --text-dark: #202124;
+            --text-gray: #5f6368;
+            --border-light: #dadce0;
+            --max-width: 1100px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Public Sans', -apple-system, sans-serif;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--google-blue);
+            text-decoration: none;
+        }
+
+        header { background: #fff; padding: 1.25rem 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-light); }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo { font-size: 1.2rem; font-weight: 600; color: var(--text-dark); text-decoration: none; letter-spacing: -0.5px; }
+
+        nav a { text-decoration: none; color: var(--text-gray); font-size: 0.9rem; margin-left: 2rem; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--google-blue); }
+
+        /* Blog Layout */
+        .main-content { display: flex; gap: 48px; padding: 40px 0; }
+        .column-main { flex: 1; }
+        .column-sidebar { flex: 0 0 240px; }
+
+        h2.section-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+        }
+        h2.section-header::after { content: ""; flex: 1; height: 1px; background: var(--border-light); margin-left: 20px; }
+
+        .blog-post { margin-bottom: 40px; }
+        .blog-post h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .blog-post h3 a { color: var(--text-dark); text-decoration: none; font-weight: 600; }
+        .blog-post h3 a:hover { color: var(--google-blue); }
+        .blog-post p { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 12px; }
+        .blog-post .meta { font-size: 0.8rem; color: #9aa0a6; }
+        
+        /* 原创文章卡片化 (原本 External 的风格) */
+.blog-post-card {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s ease;
+}
+
+.blog-post-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-color: var(--google-blue);
+}
+
+.blog-post-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+/* 外部讨论列表化 (原本 Post 的风格) */
+.discussion-item {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.discussion-item:last-child {
+    border-bottom: none;
+}
+
+.topic-title {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+    color: var(--text-dark);
+}
+
+.discussion-item .links {
+    font-size: 0.85rem;
+    margin: 4px 0;
+}
+
+.discussion-item .conclusion {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+        .external-topic { 
+            padding: 20px; 
+            border: 1px solid var(--border-light); 
+            border-radius: 8px; 
+            margin-bottom: 20px;
+            transition: border-color 0.2s;
+        }
+        .external-topic:hover { border-color: var(--google-blue); }
+
+        /* Sidebar Styles */
+        .sidebar-section { margin-bottom: 32px; }
+        .sidebar-section h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); margin-bottom: 16px; }
+        .sidebar-section ul { list-style: none; }
+        .sidebar-section li { margin-bottom: 10px; }
+        .sidebar-section a { text-decoration: none; color: var(--google-blue); font-size: 0.9rem; }
+
+        footer { border-top: 1px solid var(--border-light); padding: 40px 0; color: var(--text-gray); font-size: 0.85rem; text-align: center; }
+
+        @media (max-width: 768px) {
+            .main-content { flex-direction: column; }
+            .column-sidebar { order: -1; }
+            .nav-content { flex-direction: column; gap: 16px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+    <script type="module">
+        import ZeroMd from 'https://cdn.jsdelivr.net/npm/zero-md@3'
+        customElements.define('zero-md', ZeroMd)
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">Jiachen Lei</a>
+                <nav>
+                    <a href="index.html">About</a>
+                    <a href="blog.html" class="active">Blog</a>
+                    <a href="gallery.html">Gallery</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+<div class="container">
+    <div class="main-content">
+        <div id="content">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function renderDirect(markdownText) {
+    const container = document.getElementById("content");
+    if (!container) {
+        console.error("Could not find element with id 'content'");
+        return;
+    }
+    container.innerHTML = ''; 
+    
+    const zeroMd = document.createElement('zero-md');
+    const script = document.createElement('script');
+    script.setAttribute('type', 'text/markdown');
+    script.textContent = markdownText;
+    
+    zeroMd.appendChild(script);
+    container.appendChild(zeroMd);
+}
+</script>
+    <!-- <footer><p>© 2026 Jiachen Lei. Built with simplicity.</p></footer> -->
+</body>
+</html>
