@@ -195,6 +195,111 @@
             .nav-content { flex-direction: column; gap: 16px; }
             nav a { margin: 0 10px; }
         }
+
+        /* 悬停特效 */
+
+        /* 气泡下方的小三角 */
+        .term-tooltip::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #3c4043;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        /* 鼠标悬停显示 */
+        .term-tooltip:hover::after,
+        .term-tooltip:hover::before {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        /* 允许鼠标移入气泡 */
+        .term-tooltip:hover .tooltip-content {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- 统一悬停特效 (Google 风格) --- */
+.term-tooltip {
+    position: relative;
+    display: inline-block;
+    color: var(--google-blue);
+    border-bottom: 1px dashed var(--google-blue);
+    
+    /* 修改这里： */
+    cursor: pointer; /* 变成小手，暗示可以交互或点击 */
+    /* 或者 cursor: default; 保持普通箭头 */
+}
+
+.tooltip-content {
+    position: absolute;
+    bottom: 140%; 
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    padding: 14px;
+    border-radius: 8px;
+    width: 260px; /* 稍微加宽，适合显示摘要 */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2000;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    line-height: 1.4;
+    text-align: left; /* 确保文字左对齐 */
+}
+
+
+/* 创建一个透明的连接层，填补气泡与文字之间的缝隙 */
+/* --- 核心改进：隐形桥（无箭头版） --- */
+.tooltip-content::before {
+    content: "";
+    position: absolute;
+    top: 100%;       /* 从气泡底部开始向上填充 */
+    left: 0;
+    width: 100%;
+    height: 20px;    /* 填补气泡与文字之间 15% 的空隙 */
+    background: transparent; /* 完全透明，只负责捕获鼠标 */
+}
+
+/* 悬停激活 */
+.term-tooltip:hover .tooltip-content {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* 弹窗内的标题样式 */
+.tooltip-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    display: block;
+}
+        /* 适配移动端：防止弹窗超出屏幕左侧 */
+        @media (max-width: 768px) {
+            .tooltip-content {
+                left: 0;
+                transform: translateY(10px);
+            }
+            .term-tooltip:hover .tooltip-content {
+                transform: translateY(0);
+            }
+            .tooltip-content::after {
+                left: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -243,7 +348,19 @@
             </li>
             <li class="news-item">
                 <span class="news-date">Oct 2025</span>
-                <span>Released <b>EPG</b>, bridging the gap between pixel and latent diffusion & consistency model.</span>
+                <span>Released 
+                    <span class="term-tooltip">
+                        <b style="color: var(--google-blue); border-bottom: 1px dashed var(--google-blue); cursor: pointer;">EPG</b>
+                        <div class="tooltip-content">
+                            <div style="font-weight: 600; color: var(--text-dark); margin-bottom: 4px;">EPG (2025)</div>
+                            <p style="font-size: 0.75rem; color: var(--text-gray); margin: 0 0 8px 0; line-height: 1.3;">
+                                There is No VAE: End-to-End Pixel-Space Generative Modeling via Self-Supervised Pre-training.
+                            </p>
+                            <a href="https://arxiv.org/abs/2510.12586" target="_blank" style="font-size: 0.75rem; color: var(--google-blue); text-decoration: none;">View on ArXiv →</a>
+                        </div>
+                    </span>
+                    , bridging the gap between pixel and latent diffusion.
+                </span>
             </li>
             <li class="news-item">
                 <span class="news-date">Jan 2025</span>
