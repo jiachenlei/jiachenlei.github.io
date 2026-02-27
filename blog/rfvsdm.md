@@ -75,7 +75,7 @@ $$
 where $t\in[0,1]$, $\bm{x}(1)\sim\mathcal{N}(0,\mathbf{I})$, $\bm{x}(0)\sim p_0$. The above ODE moves sample $\bm{x}(0)$ from $p_0$ to $\bm{x}(1)$ in $\mathcal{N}(0,\mathbf{I})$. To transport backwards from $\mathcal{N}(0,\mathbf{I})$ to $p_0$, it proposes to approximate an ODE that yields the same marginal distribution of $\bm{x}(t)$ as the above equation. The training objective is
 
 $$
-    \argmin_{\theta}\int_0^1\lambda(t)\mathop{\mathbb{E}}\bigl[||(\bm{x}(1)-\bm{x}(0)) - v_{\bm{\theta}}(\bm{x}(t), t)  ||^2_2\bigr]dt, \quad\text{with}\quad\bm{x}(t) = t\bm{x}(1) - (1-t)\bm{x}(0). \tag{2}
+    \argmin_{\theta}\int_0^1\lambda(t)\mathop{\mathbb{E}}\bigl[||(\bm{x}(1)-\bm{x}(0)) - v_{\bm{\theta}}(\bm{x}(t), t)  ||^2_2\bigr]dt, \quad\text{with}\quad\bm{x}(t) = (1-t)\bm{x}(0) + t\bm{x}(1). \tag{2}
 $$
 
 
