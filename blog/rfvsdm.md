@@ -154,7 +154,7 @@ $$
 $$
 
 By setting $\mu=-4, \sigma=1$, we could plot its sampling trajectory in Fig 2. Similarly, we could derive the score function thus the analytic solution of EDM's ODE sampling function (described above).
-<img src="../static/ODE_sample_traj.png" width=100%>
+<img src="../static/rfvsdm/ODE_sample_traj.png" width=100%>
 <center> Figure 2: (Left) Sampling trajectory of RF, where we start from a noise data point 1.14 and reach data point -2.86. (Middle) ODE sampling trajectory of DM, where we start from a noise data point 85.51 and reach data point -2.88. (Right) Zoom in of DM's ODE sampling trajectory within the time range [0, 20].</center>
 
 <br>
