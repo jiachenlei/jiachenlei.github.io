@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Jiachen Lei</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --google-blue: #1a73e8;
+            --text-dark: #202124;
+            --text-gray: #5f6368;
+            --border-light: #dadce0;
+            --max-width: 1100px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Public Sans', -apple-system, sans-serif;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--google-blue);
+            text-decoration: none;
+        }
+
+        header { background: #fff; padding: 1.25rem 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-light); }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo { font-size: 1.2rem; font-weight: 600; color: var(--text-dark); text-decoration: none; letter-spacing: -0.5px; }
+
+        nav a { text-decoration: none; color: var(--text-gray); font-size: 0.9rem; margin-left: 2rem; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--google-blue); }
+
+        /* Blog Layout */
+        .main-content { display: flex; gap: 48px; padding: 40px 0; }
+        .column-main { flex: 1; }
+        .column-sidebar { flex: 0 0 240px; }
+
+        h2.section-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+        }
+        h2.section-header::after { content: ""; flex: 1; height: 1px; background: var(--border-light); margin-left: 20px; }
+
+        .blog-post { margin-bottom: 40px; }
+        .blog-post h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .blog-post h3 a { color: var(--text-dark); text-decoration: none; font-weight: 600; }
+        .blog-post h3 a:hover { color: var(--google-blue); }
+        .blog-post p { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 12px; }
+        .blog-post .meta { font-size: 0.8rem; color: #9aa0a6; }
+        
+        /* 原创文章卡片化 (原本 External 的风格) */
+.blog-post-card {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s ease;
+}
+
+.blog-post-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-color: var(--google-blue);
+}
+
+.blog-post-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+/* 外部讨论列表化 (原本 Post 的风格) */
+.discussion-item {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.discussion-item:last-child {
+    border-bottom: none;
+}
+
+.topic-title {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+    color: var(--text-dark);
+}
+
+.discussion-item .links {
+    font-size: 0.85rem;
+    margin: 4px 0;
+}
+
+.discussion-item .conclusion {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+        .external-topic { 
+            padding: 20px; 
+            border: 1px solid var(--border-light); 
+            border-radius: 8px; 
+            margin-bottom: 20px;
+            transition: border-color 0.2s;
+        }
+        .external-topic:hover { border-color: var(--google-blue); }
+
+        /* Sidebar Styles */
+        .sidebar-section { margin-bottom: 32px; }
+        .sidebar-section h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); margin-bottom: 16px; }
+        .sidebar-section ul { list-style: none; }
+        .sidebar-section li { margin-bottom: 10px; }
+        .sidebar-section a { text-decoration: none; color: var(--google-blue); font-size: 0.9rem; }
+
+        footer { border-top: 1px solid var(--border-light); padding: 40px 0; color: var(--text-gray); font-size: 0.85rem; text-align: center; }
+
+        @media (max-width: 768px) {
+            .main-content { flex-direction: column; }
+            .column-sidebar { order: -1; }
+            .nav-content { flex-direction: column; gap: 16px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">Jiachen Lei</a>
+                <nav>
+                    <a href="index.html">About</a>
+                    <a href="blog.html" class="active">Blog</a>
+                    <a href="gallery.html">Gallery</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+<div class="container">
+    <div class="main-content">
+        <div class="column-main">
+            
+            <h2 class="section-header">Latest Posts</h2>
+            
+            <!-- <article class="blog-post-card">
+                <div class="card-content">
+                    <h3><a href="#">Revisiting The Hidden Secrets in Diffusion models</a></h3>
+                    <p>It's a blog for beginners in generative modeling. The blog introduces the paper DDPM in detail, including the discrete decoder and its connection to VAE.</p>
+                    <div class="meta">Published: Oct 15, 2025</div>
+                </div>
+            </article> -->
+
+            <article class="blog-post-card">
+                <div class="card-content">
+                    <h3><a href="rfvsdm.html">Is Rectified Flow theoretically better than Diffusion Model?</a></h3>
+                    <p>Analyzing why diffusion models may underperform compared to rectified flow in practice, and how to "cook" a high-quality model.</p>
+                    <div class="meta">Sep 22, 2025</div>
+                </div>
+            </article>
+
+            <h2 class="section-header">External Discussions</h2>
+            
+            <div class="external-list">
+                <div class="discussion-item">
+                    <span class="topic-title">Why is Pre-norm more frequently used than Post-norm?</span>
+                    <div class="links">
+                        <a href="https://x.com/prompt_Tunes/status/2000610436266545392">Twitter</a>, 
+                        <a href="https://proceedings.mlr.press/v119/xiong20b/xiong20b.pdf">Paper</a>
+                    </div>
+                    <p class="conclusion"><b>Conclusion:</b> Pre-norm does not disturb the gradient and scales cleanly.</p>
+                </div>
+
+                <div class="discussion-item">
+                    <span class="topic-title">The shape regularity of diffusion sampling trajectories</span>
+                    <div class="links">
+                        <a href="https://x.com/cloneofsimo/status/1894086577632284975">Twitter</a>
+                        <a href="https://arxiv.org/pdf/2405.11326">arXiv</a>
+                    </div>
+                    <p class="conclusion"><b>Conclusion:</b> Trajectories follow a linear-nonlinear-linear structure in a 3D sub-space.</p>
+                </div>
+                
+                <div class="discussion-item">
+                    <span class="topic-title">3. Flexible patch size for ViT: How should we resize patch embedding?</span>
+                    <div class="links">
+                        <a href="https://arxiv.org/pdf/2212.08013">arXiv</a>
+                    </div>
+                    <p class="conclusion"><b>Conclusion:</b>  Start from principled experiment, the authors propose PI-Resize (a combination of transformation matrixs derived from bilinear interpolation) for "losslessly" upsampling weight embedding.</p>
+                </div>
+
+                <div class="discussion-item">
+                    <span class="topic-title">4. Why scaling qk by $\frac{1}{d}$ in Transformer? </span>
+                    <div class="links">
+                        <a href="https://x.com/viplismism/status/2003807608571076782">Arxiv</a>
+                        <a href="https://spaces.ac.cn/archives/8823">Blog</a>
+                    </div>
+                    <p class="conclusion"><b>Conclusion:</b> To prevent the qk value from increasing with embedding dimension, leading to saturated softmax and low-rank attention matrix.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+</div>
+    
+    <!-- <footer><p>© 2026 Jiachen Lei. Built with simplicity.</p></footer> -->
+</body>
+</html>
