@@ -1,4 +1,4 @@
-## Is rectified flow theoretically better than Diffusion Model? How to "cook" a good diffusion model in practice?
+## It's time to replace diffusion model with fLow matching: a bitter leason
 
 > April 20, 2025 by Jiachen  
 
